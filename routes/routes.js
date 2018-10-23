@@ -31,7 +31,6 @@ router.post('/ambassador', async (req, res) => {
     contactMail
   } = req.body;
 
-  console.log(req.body);
   try {
     const result = await addRowToAmbassador(
       clinicName,
@@ -51,8 +50,6 @@ router.post('/ambassador', async (req, res) => {
   } catch (err) {
     res.status(500).send({ msg: err });
   }
-
-  res.send({ msg: 'Recieved!' });
 });
 
 module.exports = router;
