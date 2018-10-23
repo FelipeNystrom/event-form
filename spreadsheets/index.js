@@ -1,5 +1,7 @@
 const addRowToNewsletter = require('./newsletter');
+const addRowToAmbassador = require('./ambassador');
 
 module.exports = {
-  addRowToNewsletter
+  addRowToNewsletter,
+  addRowToAmbassador
 };

@@ -1,6 +1,6 @@
 const Router = require('express-promise-router');
 const router = new Router();
-const { addRowToNewsletter } = require('../spreadsheets');
+const { addRowToNewsletter, addRowToAmbassador } = require('../spreadsheets');
 
 router.get('/', (req, res) => {});
 
@@ -21,7 +21,37 @@ router.post('/newsletter', async (req, res) => {
 
 router.post('/order', (req, res) => {});
 
-router.post('/ambassador', (req, res) => {
+router.post('/ambassador', async (req, res) => {
+  const {
+    clinicName,
+    clinicAddress,
+    contactFirstname,
+    contactLastname,
+    contactPhoneNumber,
+    contactMail
+  } = req.body;
+
+  console.log(req.body);
+  try {
+    const result = await addRowToAmbassador(
+      clinicName,
+      clinicAddress,
+      contactFirstname,
+      contactLastname,
+      contactPhoneNumber,
+      contactMail
+    );
+    res.send({
+      msg: `a new row with values: ${result.clinicname}, ${
+        result.clinicaddress
+      }, ${result.contactfirstname}, ${result.contactlastname}, ${
+        result.contactphonenumber
+      }, ${result.contactmail} has successfully been inserted!`
+    });
+  } catch (err) {
+    res.status(500).send({ msg: err });
+  }
+
   res.send({ msg: 'Recieved!' });
 });
 
