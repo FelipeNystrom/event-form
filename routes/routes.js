@@ -9,11 +9,7 @@ router.post('/newsletter', async (req, res) => {
 
   try {
     const result = await addRowToNewsletter(name, mail);
-    res.send({
-      msg: `a new row with name:${result.name} and email:${
-        result.mail
-      } has successfully been added!`
-    });
+    res.sendStatus(200);
   } catch (err) {
     res.status(500).send({ msg: err });
   }
@@ -40,13 +36,14 @@ router.post('/ambassador', async (req, res) => {
       contactPhoneNumber,
       contactMail
     );
-    res.send({
-      msg: `a new row with values: ${result.clinicname}, ${
+    console.log(
+      `msg: a new row with values: ${result.clinicname}, ${
         result.clinicaddress
       }, ${result.contactfirstname}, ${result.contactlastname}, ${
         result.contactphonenumber
       }, ${result.contactmail} has successfully been inserted!`
-    });
+    );
+    res.sendStatus(200);
   } catch (err) {
     res.status(500).send({ msg: err });
   }
