@@ -22,7 +22,7 @@ module.exports = async (
   contactMail
 ) => {
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-
+  console.log(credentials);
   await promisify(doc.useServiceAccountAuth)(credentials);
   const info = await promisify(doc.getInfo)();
   console.log(`Loaded doc: ` + info.title + ` by ` + info.author.email);
