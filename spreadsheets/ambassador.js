@@ -42,5 +42,6 @@ module.exports = async (
     contact_mail: contactMail
   };
   const insert = await promisify(sheet.addRow)(insertNewRow);
+  console.log(insert);
   return insert;
 };
