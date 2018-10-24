@@ -13,8 +13,6 @@ if (NODE_ENV !== 'production') {
   };
 }
 
-console.log(process.env);
-
 module.exports = async (
   clinicName,
   clinicAddress,
@@ -24,7 +22,6 @@ module.exports = async (
   contactMail
 ) => {
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-  console.log(`this is creds: ${credentials}`);
   await promisify(doc.useServiceAccountAuth)(credentials);
   const info = await promisify(doc.getInfo)();
   console.log(`Loaded doc: ` + info.title + ` by ` + info.author.email);
@@ -42,6 +39,5 @@ module.exports = async (
     contact_mail: contactMail
   };
   const insert = await promisify(sheet.addRow)(insertNewRow);
-  console.log(insert);
   return insert;
 };
