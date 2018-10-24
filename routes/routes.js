@@ -6,9 +6,10 @@ router.get('/', (req, res) => {});
 
 router.post('/newsletter', async (req, res) => {
   const { name, mail } = req.body;
-
+  console.log(req.body);
   try {
     const result = await addRowToNewsletter(name, mail);
+    console.log(result);
     res.sendStatus(200);
   } catch (err) {
     res.status(500).send({ msg: err });
