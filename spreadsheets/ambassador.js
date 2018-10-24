@@ -1,7 +1,17 @@
 const GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
-const credentials = require(`../service-account.json`);
 const SPREADSHEET_ID = '1vczSUriAbFJfKNgUxU8K3JTRPlmPlPHZAfmKm9NeSjw';
+const { NODE_ENV } = process.env;
+
+let credentials;
+if (NODE_ENV !== 'production') {
+  credentials = require(`../service-account.json`);
+} else {
+  credentials = {
+    client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY
+  };
+}
 
 module.exports = async (
   clinicName,
