@@ -5,7 +5,7 @@ const { NODE_ENV } = process.env;
 
 let credentials;
 if (NODE_ENV !== 'production') {
-  credentials = require(`../service-account.json`);
+  credentials = require(`../../service-account.json`);
 } else {
   credentials = {
     client_email: process.env.GOOGLE_CLIENT_EMAIL,
