@@ -3,7 +3,9 @@ const router = new Router();
 const {
   addRowToNewsletter,
   addRowToAmbassador,
-  addRowToBasicPkg
+  addRowToBasicPkg,
+  addRowToPremiumPkg,
+  addRowToPlatinumPkg
 } = require('../spreadsheets');
 
 router.get('/', (req, res) => {});
@@ -131,7 +133,7 @@ router.post('/pkg/premium', (req, res) => {
       companyPostalRegion,
       companyName
     );
-    console.log('sucess inserting row to basic package sheet');
+    console.log('sucess inserting row to premium package sheet');
     if (wantNewsletter === true) {
       const fullname = contactFirstname.concat(` ${contactLastname}`);
       await addRowToNewsletter(fullname, mail);
@@ -146,6 +148,17 @@ router.post('/pkg/premium', (req, res) => {
   
 });
 
-router.post('/pkg/platinum', (req, res) => {});
+router.post('/pkg/platinum', (req, res) => {
+      const {companyName,contactMail,contactPhonenumber} = req.body.pltnmPkg;
+
+      try {
+        await addRowToPlatinumPkg(companyName,contactMail,contactPhonenumber)
+        console.log('sucess inserting row to platinum package sheet');
+        res.sendStatus(200);
+      } catch (err) {
+        console.error(err);
+        res.status(500).send({ msg: err });
+      }
+});
 
 module.exports = router;
