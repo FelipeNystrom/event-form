@@ -1,6 +1,6 @@
 const GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
-const SPREADSHEET_ID = '14Ir2N45tHjyIVjYuAYrhIzNE_F7Yd_6yTVNz_yMYUgY';
+const SPREADSHEET_ID = '1oAtfy2I1j7HAWKGV3WxtBV5F9xObIggCTVQeD_ATkYE';
 const { NODE_ENV } = process.env;
 
 let credentials;
