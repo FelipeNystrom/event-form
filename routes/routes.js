@@ -112,7 +112,8 @@ router.post('/pkg/premium', async (req, res) => {
     companyAddress2,
     companyZipcode,
     companyPostalRegion,
-    companyName
+    companyName,
+    otherInput
   } = req.body.cntPkg;
 
   try {
@@ -131,7 +132,8 @@ router.post('/pkg/premium', async (req, res) => {
       companyAddress2,
       companyZipcode,
       companyPostalRegion,
-      companyName
+      companyName,
+      otherInput
     );
     console.log('sucess inserting row to premium package sheet');
     if (wantNewsletter === true) {
