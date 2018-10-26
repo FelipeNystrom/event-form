@@ -28,7 +28,8 @@ module.exports = async (
   companyAddress2,
   companyZipcode,
   companyPostalRegion,
-  companyName
+  companyName,
+  otherInput
 ) => {
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
   await promisify(doc.useServiceAccountAuth)(credentials);
@@ -54,7 +55,8 @@ module.exports = async (
     companyAddress2_optional: companyAddress2,
     companyZipcode: companyZipcode,
     companyPostalRegion: companyPostalRegion,
-    companyName: companyName
+    companyName: companyName,
+    other: otherInput
   };
   const insert = await promisify(sheet.addRow)(insertNewRow);
   return insert;
