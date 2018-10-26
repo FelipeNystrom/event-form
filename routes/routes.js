@@ -95,7 +95,7 @@ router.post('/pkg/basic', async (req, res) => {
   }
 });
 
-router.post('/pkg/premium', (req, res) => {
+router.post('/pkg/premium', async (req, res) => {
   const {
     sample,
     address1,
@@ -144,21 +144,19 @@ router.post('/pkg/premium', (req, res) => {
     console.error(err);
     res.status(500).send({ msg: err });
   }
-
-  
 });
 
-router.post('/pkg/platinum', (req, res) => {
-      const {companyName,contactMail,contactPhonenumber} = req.body.pltnmPkg;
+router.post('/pkg/platinum', async (req, res) => {
+  const { companyName, contactMail, contactPhonenumber } = req.body.pltnmPkg;
 
-      try {
-        await addRowToPlatinumPkg(companyName,contactMail,contactPhonenumber)
-        console.log('sucess inserting row to platinum package sheet');
-        res.sendStatus(200);
-      } catch (err) {
-        console.error(err);
-        res.status(500).send({ msg: err });
-      }
+  try {
+    await addRowToPlatinumPkg(companyName, contactMail, contactPhonenumber);
+    console.log('sucess inserting row to platinum package sheet');
+    res.sendStatus(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ msg: err });
+  }
 });
 
 module.exports = router;
