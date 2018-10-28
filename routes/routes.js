@@ -149,10 +149,26 @@ router.post('/pkg/premium', async (req, res) => {
 });
 
 router.post('/pkg/platinum', async (req, res) => {
-  const { companyName, contactMail, contactPhonenumber } = req.body.pltnmPkg;
+  const {
+    companyName,
+    contactMail,
+    contactPhonenumber,
+    addressCompanyInput1,
+    addressCompanyInput2,
+    zipCodeCompanyInput,
+    regionCompanyInput
+  } = req.body.pltnmPkg;
 
   try {
-    await addRowToPlatinumPkg(companyName, contactMail, contactPhonenumber);
+    await addRowToPlatinumPkg(
+      companyName,
+      contactMail,
+      contactPhonenumber,
+      addressCompanyInput1,
+      addressCompanyInput2,
+      zipCodeCompanyInput,
+      regionCompanyInput
+    );
     console.log('sucess inserting row to platinum package sheet');
     res.sendStatus(200);
   } catch (err) {

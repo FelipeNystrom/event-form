@@ -14,7 +14,15 @@ if (NODE_ENV !== 'production') {
 }
 
 const SPREADSHEET_ID = '1tGFd5qpkCw4F55srLlPSuYVG4r7NQezf1fBgrVVtH1Y';
-module.exports = async (companyName, contactMail, contactPhonenumber) => {
+module.exports = async (
+  companyName,
+  contactMail,
+  contactPhonenumber,
+  addressCompanyInput1,
+  addressCompanyInput2,
+  zipCodeCompanyInput,
+  regionCompanyInput
+) => {
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
   await promisify(doc.useServiceAccountAuth)(credentials);
   const info = await promisify(doc.getInfo)();
@@ -25,9 +33,13 @@ module.exports = async (companyName, contactMail, contactPhonenumber) => {
   );
 
   const insertNewRow = {
-    companyName: companyName,
-    contactMail: contactMail,
-    contactPhonenumber: contactPhonenumber
+    companyname: companyName,
+    contact_mail: contactMail,
+    contact_phonenumber: contactPhonenumber,
+    address_1: addressCompanyInput1,
+    address_2: addressCompanyInput2,
+    zipcode: zipCodeCompanyInput,
+    postal_region: regionCompanyInput
   };
   const insert = await promisify(sheet.addRow)(insertNewRow);
   return insert;
