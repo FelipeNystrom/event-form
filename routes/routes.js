@@ -54,13 +54,15 @@ router.post('/ambassador', async (req, res) => {
 
 router.post('/pkg/basic', async (req, res) => {
   const {
-    sample,
+    samples,
+    recipient,
     address1,
     address2,
     phoneNumber,
     mail,
     zipCode,
     postalRegion,
+    agent,
     isBigClinic,
     wantNewsletter,
     contactFirstname,
@@ -69,15 +71,21 @@ router.post('/pkg/basic', async (req, res) => {
 
   console.log(req.body.cntPkg);
 
+  const samplesIds = samples.map(sample => {
+    return sample.id;
+  });
+
   try {
     await addRowToBasicPkg(
-      sample,
+      samplesIds,
+      recipient,
       address1,
       address2,
       phoneNumber,
       mail,
       zipCode,
       postalRegion,
+      agent,
       isBigClinic,
       contactFirstname,
       contactLastname
@@ -97,13 +105,15 @@ router.post('/pkg/basic', async (req, res) => {
 
 router.post('/pkg/premium', async (req, res) => {
   const {
-    sample,
+    samples,
+    recipient,
     address1,
     address2,
     phoneNumber,
     mail,
     zipCode,
     postalRegion,
+    agent,
     isBigClinic,
     wantNewsletter,
     contactFirstname,
@@ -113,18 +123,25 @@ router.post('/pkg/premium', async (req, res) => {
     companyZipcode,
     companyPostalRegion,
     companyName,
-    otherInput
+    otherInput,
+    sellingToday
   } = req.body.cntPkg;
+
+  const samplesIds = samples.map(sample => {
+    return sample.id;
+  });
 
   try {
     await addRowToPremiumPkg(
-      sample,
+      samplesIds,
+      recipient,
       address1,
       address2,
       phoneNumber,
       mail,
       zipCode,
       postalRegion,
+      agent,
       isBigClinic,
       contactFirstname,
       contactLastname,
@@ -133,6 +150,7 @@ router.post('/pkg/premium', async (req, res) => {
       companyZipcode,
       companyPostalRegion,
       companyName,
+      sellingToday,
       otherInput
     );
     console.log('sucess inserting row to premium package sheet');
@@ -156,7 +174,9 @@ router.post('/pkg/platinum', async (req, res) => {
     addressCompanyInput1,
     addressCompanyInput2,
     zipCodeCompanyInput,
-    regionCompanyInput
+    regionCompanyInput,
+    sellingToday,
+    otherInput
   } = req.body.pltnmPkg;
 
   try {
@@ -167,7 +187,9 @@ router.post('/pkg/platinum', async (req, res) => {
       addressCompanyInput1,
       addressCompanyInput2,
       zipCodeCompanyInput,
-      regionCompanyInput
+      regionCompanyInput,
+      sellingToday,
+      otherInput
     );
     console.log('sucess inserting row to platinum package sheet');
     res.sendStatus(200);

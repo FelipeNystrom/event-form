@@ -14,13 +14,15 @@ if (NODE_ENV !== 'production') {
 }
 
 module.exports = async (
-  sample,
+  samples,
+  recipient,
   address1,
   address2,
   phoneNumber,
   mail,
   zipCode,
   postalRegion,
+  agent,
   isBigClinic,
   contactFirstname,
   contactLastname,
@@ -29,6 +31,7 @@ module.exports = async (
   companyZipcode,
   companyPostalRegion,
   companyName,
+  sellingToday,
   otherInput
 ) => {
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -41,21 +44,24 @@ module.exports = async (
   );
 
   const insertNewRow = {
-    package_type: sample,
+    package_type: samples,
+    recipient: recipient,
     adress1: address1,
     address2_optional: address2,
     phonenumber: phoneNumber,
     mail: mail,
     zipcode: zipCode,
     postal_region: postalRegion,
+    agent: agent,
     is_big: isBigClinic,
     contact_person_firstname: contactFirstname,
     contact_person_lastname: contactLastname,
-    companyAddress1: companyAddress1,
-    companyAddress2_optional: companyAddress2,
-    companyZipcode: companyZipcode,
-    companyPostalRegion: companyPostalRegion,
-    companyName: companyName,
+    company_address1: companyAddress1,
+    company_address2_optional: companyAddress2,
+    company_zipcode: companyZipcode,
+    company_postal_region: companyPostalRegion,
+    company_name: companyName,
+    selling_today: sellingToday,
     other: otherInput
   };
   const insert = await promisify(sheet.addRow)(insertNewRow);

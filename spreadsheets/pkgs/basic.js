@@ -14,13 +14,15 @@ if (NODE_ENV !== 'production') {
 }
 
 module.exports = async (
-  sample,
+  samplesIds,
+  recipient,
   address1,
   address2,
   phoneNumber,
   mail,
   zipCode,
   postalRegion,
+  agent,
   isBigClinic,
   contactFirstname,
   contactLastname
@@ -35,13 +37,15 @@ module.exports = async (
   );
 
   const insertNewRow = {
-    package_type: sample,
+    package_type: samplesIds,
+    recipient: recipient,
     adress1: address1,
     address2_optional: address2,
     phonenumber: phoneNumber,
     mail: mail,
     zipcode: zipCode,
     postal_region: postalRegion,
+    agent: agent,
     is_big: isBigClinic,
     contact_person_firstname: contactFirstname,
     contact_person_lastname: contactLastname
