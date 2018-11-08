@@ -1,0 +1,57 @@
+.order-packages {
+  width: 100%;
+  padding: 4% 4%;
+  padding-top: 0;
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.2rem;
+  height: 85%;
+  justify-content: space-around;
+}
+
+.package {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  height: 100%;
+  box-shadow: 0.2rem 0.2rem 0.5rem 0px hsl(0, 0%, 70%);
+  background-color: hsl(0, 0%, 100%);
+  padding: 4% 4%;
+}
+
+.package-title {
+  text-align: center;
+  font-size: 200%;
+  font-weight: bolder;
+}
+
+.package-title-secondary {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 110%;
+  font-style: oblique;
+}
+
+.package-specifics {
+  margin-top: 3rem;
+}
+
+.package-specifics li {
+  font-size: 130%;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.package-select input {
+  background-color: white;
+  width: 100%;
+  border-radius: 0.2rem;
+  background-color: hsl(120, 55%, 63%);
+  transition: background-color 100ms ease-in-out;
+  border: none;
+}
+
+.package-select input:active {
+  background-color: hsl(120, 45%, 55%);
+}
