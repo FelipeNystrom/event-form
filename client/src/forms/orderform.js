@@ -105,12 +105,11 @@ class Orderform extends Component {
     } = this.state;
 
     if (acceptsTerms) {
-      const REACT_APP_BASE_URL = window.location.host;
       const filteredSampleChoice = samples.filter(
         sample => sample.selected === true
       );
 
-      let apiCall = `${REACT_APP_BASE_URL}/api/pkg/basic`;
+      let apiCall = `/api/pkg/basic`;
 
       const cntPkg = {
         samples: filteredSampleChoice,
@@ -128,7 +127,7 @@ class Orderform extends Component {
       };
 
       if (premium) {
-        apiCall = `${REACT_APP_BASE_URL}/api/pkg/premium`;
+        apiCall = `/api/pkg/premium`;
 
         cntPkg['companyAddress1'] = addressCompanyInput1;
         cntPkg['companyAddress2'] = addressCompanyInput2;

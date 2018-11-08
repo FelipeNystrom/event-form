@@ -39,7 +39,6 @@ class Newsletter extends Component {
     const { newsletterInput, subscribersNameInput, acceptsTerms } = this.state;
 
     if (acceptsTerms) {
-      const REACT_APP_BASE_URL = window.location.host;
       const opts = {
         method: 'POST',
         body: JSON.stringify({
@@ -51,7 +50,7 @@ class Newsletter extends Component {
         }
       };
 
-      fetch(`${REACT_APP_BASE_URL}/api/newsletter`, opts)
+      fetch(`/api/newsletter`, opts)
         .then(res => {
           if (res.status === 200) {
             this.setState({

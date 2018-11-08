@@ -51,7 +51,6 @@ class Ambassador extends Component {
     } = this.state;
 
     if (acceptsTerms) {
-      const REACT_APP_BASE_URL = window.location.host;
       const opts = {
         method: 'POST',
         headers: {
@@ -67,7 +66,7 @@ class Ambassador extends Component {
         })
       };
 
-      fetch(`${REACT_APP_BASE_URL}/api/ambassador`, opts)
+      fetch(`/api/ambassador`, opts)
         .then(res => {
           if (res.status === 200) {
             this.setState({
