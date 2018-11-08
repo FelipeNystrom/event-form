@@ -23,8 +23,7 @@ module.exports = async (
   postalRegion,
   agent,
   isBigClinic,
-  contactFirstname,
-  contactLastname
+  contactName
 ) => {
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID_BASIC);
   await promisify(doc.useServiceAccountAuth)(credentials);
@@ -46,8 +45,7 @@ module.exports = async (
     postal_region: postalRegion,
     agent: agent,
     is_big: isBigClinic,
-    contact_person_firstname: contactFirstname,
-    contact_person_lastname: contactLastname
+    contact_person_name: contactName
   };
   const insert = await promisify(sheet.addRow)(insertNewRow);
   return insert;

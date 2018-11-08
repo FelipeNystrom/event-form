@@ -15,8 +15,7 @@ if (NODE_ENV !== 'production') {
 module.exports = async (
   clinicName,
   clinicAddress,
-  contactFirstname,
-  contactLastname,
+  contactName,
   contactPhoneNumber,
   contactMail
 ) => {
@@ -32,8 +31,7 @@ module.exports = async (
   const insertNewRow = {
     clinic_name: clinicName,
     clinic_address: clinicAddress,
-    contact_firstname: contactFirstname,
-    contact_lastname: contactLastname,
+    contact_person_name: contactName,
     contact_phone_number: contactPhoneNumber,
     contact_mail: contactMail
   };
