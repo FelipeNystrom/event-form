@@ -174,7 +174,8 @@ class Orderform extends Component {
               regionCompanyInput: '',
               companyNameInput: '',
               successMsg: 'Tack för att du vill prova våra produkter!',
-              redirect: true
+              redirect: true,
+              next: false
             });
           }
         })
