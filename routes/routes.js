@@ -65,8 +65,7 @@ router.post('/pkg/basic', async (req, res) => {
     agent,
     isBigClinic,
     wantNewsletter,
-    contactFirstname,
-    contactLastname
+    contactName
   } = req.body.cntPkg;
 
   console.log(req.body.cntPkg);
@@ -87,13 +86,11 @@ router.post('/pkg/basic', async (req, res) => {
       postalRegion,
       agent,
       isBigClinic,
-      contactFirstname,
-      contactLastname
+      contactName
     );
     console.log('sucess inserting row to basic package sheet');
     if (wantNewsletter === true) {
-      const fullname = contactFirstname.concat(` ${contactLastname}`);
-      await addRowToNewsletter(fullname, mail);
+      await addRowToNewsletter(contactName, mail);
       console.log('sucess adding new subscriber to newsletter sheet');
     }
     res.sendStatus(200);
@@ -116,8 +113,7 @@ router.post('/pkg/premium', async (req, res) => {
     agent,
     isBigClinic,
     wantNewsletter,
-    contactFirstname,
-    contactLastname,
+    contactName,
     companyAddress1,
     companyAddress2,
     companyZipcode,
@@ -143,8 +139,7 @@ router.post('/pkg/premium', async (req, res) => {
       postalRegion,
       agent,
       isBigClinic,
-      contactFirstname,
-      contactLastname,
+      contactName,
       companyAddress1,
       companyAddress2,
       companyZipcode,
@@ -155,8 +150,7 @@ router.post('/pkg/premium', async (req, res) => {
     );
     console.log('sucess inserting row to premium package sheet');
     if (wantNewsletter === true) {
-      const fullname = contactFirstname.concat(` ${contactLastname}`);
-      await addRowToNewsletter(fullname, mail);
+      await addRowToNewsletter(contactName, mail);
       console.log('sucess adding new subscriber to newsletter sheet');
     }
     res.sendStatus(200);

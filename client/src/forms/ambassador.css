@@ -1,0 +1,60 @@
+.ambassador-form {
+  width: 90%;
+  background-color: hsl(0, 0%, 100%);
+  padding: 2% 4%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.2rem;
+  height: 75vh;
+  justify-content: space-around;
+  box-shadow: 0.2rem 0.2rem 0.5rem 0px hsla(0, 0%, 70%, 1);
+  margin-bottom: 0.5rem;
+}
+
+.ambassador-form input {
+  height: 4rem;
+  padding: 1%;
+  font-size: 120%;
+  width: 100%;
+  margin: 0 1rem;
+  flex: 1;
+}
+
+.ambassador-form input[type='submit'] {
+  background-color: hsl(120, 55%, 63%);
+  border: 0;
+  color: hsl(0, 0%, 19%);
+  margin: 0;
+  max-height: 4rem;
+  transition: background-color 100ms ease-in-out;
+}
+
+.ambassador-form input[type='submit']:active {
+  background-color: hsl(120, 45%, 55%);
+}
+
+.clinic,
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.clinic-title,
+.contact-title {
+  font-size: 150%;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.ambassador-row {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.clinic-title,
+.contact-title {
+  align-self: center;
+}

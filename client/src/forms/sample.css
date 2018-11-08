@@ -1,0 +1,14 @@
+.sample {
+  width: 100%;
+  max-width: 11rem;
+}
+.sample-wrapper {
+  width: 11.5rem;
+  height: 11.5rem;
+  margin: 0.5rem;
+  border: 0.4rem solid transparent;
+}
+
+.selected {
+  border-color: hsl(120, 55%, 63%);
+}

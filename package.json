@@ -5,14 +5,17 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-start": "NODE_ENV=development nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "dev-start": "NODE_ENV=development nodemon -r dotenv/config server.js",
+    "client-start": "cd client && npm run start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.4",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-promise-router": "^3.0.3",
     "google-spreadsheet": "^2.0.6"

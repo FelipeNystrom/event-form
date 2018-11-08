@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: hsl(0, 0%, 25%);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body #root {
+  width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(240, 19%, 95%);
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-transform: none;
+  text-decoration: none;
+  color: black;
+}
+
+input {
+  padding: 1%;
+  margin: 0 1rem;
+  border-style: none;
+  border-bottom: 0.1rem solid hsl(0, 0%, 70%);
+  font-size: 120%;
+}
+
+input[type='button'],
+input[type='submit'],
+button {
+  background-color: inherit;
+  border: 0.1rem solid hsl(0, 0%, 90%);
+  text-align: center;
+  border-radius: 0.2rem;
+  padding: 4%;
+  margin-top: 1rem 0;
+  box-shadow: 0.2rem 0.2rem 0.5rem 0px hsla(0, 0%, 70%, 1);
+  transition: box-shadow 100ms ease-in-out;
+  font-size: 200%;
+  font-weight: bolder;
+  color: hsl(0, 0%, 19%);
+}
+
+input[type='button']:active,
+input[type='submit']:active,
+button:active {
+  box-shadow: 0rem 0rem 0rem 0px hsla(0, 0%, 70%, 1);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+nav {
+  width: 50%;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-top: 0;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.success {
+  width: 80%;
+  padding: 2%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 150%;
+  align-self: center;
+  background-color: hsla(120, 46%, 58%, 0.7);
+  border: 0.1rem solid hsla(0, 0%, 70%, 0.9);
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+
+.error {
+  width: 80%;
+  padding: 2%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 150%;
+  align-self: center;
+  background-color: hsl(0, 52%, 55%);
+  border: 0.1rem solid hsla(0, 0%, 70%, 0.9);
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+
+.logo-section-container {
+  position: fixed;
+  z-index: 1000;
+  top: 1.5rem;
+  right: 1rem;
+}

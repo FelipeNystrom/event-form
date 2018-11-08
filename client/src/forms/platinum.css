@@ -1,0 +1,71 @@
+.platinum-form {
+  width: 90%;
+  background-color: hsl(0, 0%, 100%);
+  padding: 3% 4%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.2rem;
+  height: 85%;
+  justify-content: space-around;
+  box-shadow: 0.2rem 0.2rem 0.5rem 0px hsla(0, 0%, 70%, 1);
+  margin-bottom: 2rem;
+}
+
+.package-description {
+  width: 90%;
+  align-self: center;
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.platinum-form input {
+  font-size: 120%;
+  padding: 3% 1%;
+  margin: 1rem 0;
+}
+
+.platinum-form textarea {
+  height: 10rem;
+  font-size: 150%;
+  padding: 2%;
+  border: none;
+}
+
+.platinum-form input[type='submit'],
+.platinum-form input[type='button'] {
+  padding: 5%;
+  text-align: center;
+  background-color: hsl(120, 55%, 63%);
+  transition: background-color 100ms ease-in-out;
+  font-size: 200%;
+  max-height: 3rem;
+  max-height: 2.5rem;
+}
+
+.platinum-form input[type='button']:active,
+.platinum-form input[type='submit']:active {
+  background-color: hsl(120, 45%, 55%);
+}
+
+.selling-today {
+  font-size: 140%;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.selling-today-title {
+  text-align: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.options label input {
+  transform: scale(1.5);
+  margin-left: 1rem;
+}

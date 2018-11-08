@@ -1,7 +1,6 @@
 const GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
-const SPREADSHEET_ID = '1oAtfy2I1j7HAWKGV3WxtBV5F9xObIggCTVQeD_ATkYE';
-const { NODE_ENV } = process.env;
+const { SPREADSHEET_ID_PREMIUM, NODE_ENV } = process.env;
 
 let credentials;
 if (NODE_ENV !== 'production') {
@@ -34,7 +33,7 @@ module.exports = async (
   sellingToday,
   otherInput
 ) => {
-  const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+  const doc = new GoogleSpreadsheet(SPREADSHEET_ID_PREMIUM);
   await promisify(doc.useServiceAccountAuth)(credentials);
   const info = await promisify(doc.getInfo)();
   console.log(`Loaded doc: ` + info.title + ` by ` + info.author.email);

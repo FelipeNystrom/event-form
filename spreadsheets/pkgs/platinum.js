@@ -1,7 +1,6 @@
 const GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
-
-const { NODE_ENV } = process.env;
+const { SPREADSHEET_ID_PLATINUM, NODE_ENV } = process.env;
 
 let credentials;
 if (NODE_ENV !== 'production') {
@@ -13,7 +12,6 @@ if (NODE_ENV !== 'production') {
   };
 }
 
-const SPREADSHEET_ID = '1tGFd5qpkCw4F55srLlPSuYVG4r7NQezf1fBgrVVtH1Y';
 module.exports = async (
   companyName,
   contactMail,
@@ -25,7 +23,7 @@ module.exports = async (
   sellingToday,
   otherInput
 ) => {
-  const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+  const doc = new GoogleSpreadsheet(SPREADSHEET_ID_PLATINUM);
   await promisify(doc.useServiceAccountAuth)(credentials);
   const info = await promisify(doc.getInfo)();
   console.log(`Loaded doc: ` + info.title + ` by ` + info.author.email);

@@ -1,0 +1,31 @@
+.newsletter-form {
+  width: 90%;
+  background-color: hsl(0, 0%, 100%);
+  padding: 6% 4%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.2rem;
+  height: 75vh;
+  justify-content: space-around;
+  box-shadow: 0.2rem 0.2rem 0.5rem 0px hsla(0, 0%, 70%, 1);
+}
+
+.newsletter-form input {
+  font-size: 150%;
+  padding: 2% 1%;
+  margin: 2rem 0;
+  height: 3rem;
+}
+
+.newsletter-form input[type='submit'] {
+  padding: 5%;
+  text-align: center;
+  background-color: hsl(120, 55%, 63%);
+  transition: background-color 100ms ease-in-out;
+  font-size: 150%;
+  max-height: 4rem;
+}
+
+.newsletter-form input[type='submit']:active {
+  background-color: hsl(120, 45%, 55%);
+}
