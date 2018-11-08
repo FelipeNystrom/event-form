@@ -8,6 +8,8 @@ server.use(require('cors')());
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
+mountRoutes(server);
+
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(path.join(__dirname, 'client/build')));
   // Anything that doesn't match the above, send back index.html
@@ -17,8 +19,6 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   server.use(express.static(path.join(__dirname, 'public')));
 }
-
-mountRoutes(server);
 
 server.listen(_port, () => {
   console.log(`Api running on port ${_port}`);

@@ -105,7 +105,7 @@ class Orderform extends Component {
     } = this.state;
 
     if (acceptsTerms) {
-      const { REACT_APP_BASE_URL } = process.env;
+      const REACT_APP_BASE_URL = window.location.host;
       const filteredSampleChoice = samples.filter(
         sample => sample.selected === true
       );
