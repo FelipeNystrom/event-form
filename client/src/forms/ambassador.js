@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import './ambassador.css';
+import './ambassador.scss';
 import Modal from './modal';
 
 class Ambassador extends Component {
@@ -7,8 +7,7 @@ class Ambassador extends Component {
     clinicNameInput: '',
     clinicAddressInput: '',
     contactFirstNameInput: '',
-    contactLastNameInput: '',
-    contactNumberInput: '',
+    contactNameInput: '',
     contactMailInput: '',
     succesMsg: '',
     errorMsg: '',
@@ -43,8 +42,7 @@ class Ambassador extends Component {
     const {
       clinicNameInput,
       clinicAddressInput,
-      contactFirstNameInput,
-      contactLastNameInput,
+      contactNameInput,
       contactNumberInput,
       contactMailInput,
       acceptsTerms
@@ -59,8 +57,7 @@ class Ambassador extends Component {
         body: JSON.stringify({
           clinicName: clinicNameInput,
           clinicAddress: clinicAddressInput,
-          contactFirstname: contactFirstNameInput,
-          contactLastname: contactLastNameInput,
+          contactName: contactNameInput,
           contactPhoneNumber: contactNumberInput,
           contactMail: contactMailInput
         })
@@ -72,8 +69,7 @@ class Ambassador extends Component {
             this.setState({
               clinicNameInput: '',
               clinicAddressInput: '',
-              contactFirstNameInput: '',
-              contactLastNameInput: '',
+              contactName: '',
               contactNumberInput: '',
               contactMailInput: '',
               succesMsg: 'Tack för att du vill vara vår ambassadör',
@@ -86,8 +82,7 @@ class Ambassador extends Component {
           this.setState({
             clinicNameInput: '',
             clinicAddressInput: '',
-            contactFirstNameInput: '',
-            contactLastNameInput: '',
+            contactName: '',
             contactNumberInput: '',
             contactMailInput: '',
             errorMsg: 'err',
@@ -116,8 +111,7 @@ class Ambassador extends Component {
     const {
       clinicNameInput,
       clinicAddressInput,
-      contactFirstNameInput,
-      contactLastNameInput,
+      contactNameInput,
       contactNumberInput,
       contactMailInput,
       succesMsg,
@@ -164,28 +158,17 @@ class Ambassador extends Component {
               <input
                 type="text"
                 onChange={this.handleChange}
-                value={contactFirstNameInput}
-                name="contactFirstNameInput"
-                placeholder="Förnamn"
+                value={contactNameInput}
+                name="contactNameInput"
+                placeholder="Namn"
                 required
               />
-
-              <input
-                type="text"
-                value={contactLastNameInput}
-                onChange={this.handleChange}
-                name="contactLastNameInput"
-                placeholder="Efternamn"
-                required
-              />
-            </div>
-            <div className="ambassador-row">
               <input
                 type="text"
                 onChange={this.handleChange}
                 value={contactNumberInput}
                 name="contactNumberInput"
-                placeholder="Telefonnummer till kontaktperson"
+                placeholder="Telefonnummer"
                 required
               />
               <input
@@ -193,7 +176,7 @@ class Ambassador extends Component {
                 onChange={this.handleChange}
                 value={contactMailInput}
                 name="contactMailInput"
-                placeholder="Mailaddress till kontakperson"
+                placeholder="Mailaddress"
                 required
               />
             </div>

@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   color: hsl(0, 0%, 25%);
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 body {

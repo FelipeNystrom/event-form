@@ -3,6 +3,7 @@ import './orderform.scss';
 import Sample from './sample';
 import Checkbox from './Checkbox';
 import Modal from './modal';
+import premiumPkg from '../assets/Plackers_iPad.png';
 
 class Orderform extends Component {
   state = {
@@ -300,10 +301,7 @@ class Orderform extends Component {
                       ) : (
                         <Fragment>
                           <div className="sample-premium">
-                            <img
-                              src="https://via.placeholder.com/360"
-                              alt="#"
-                            />
+                            <img src={premiumPkg} alt="#" />
                           </div>
                         </Fragment>
                       )}

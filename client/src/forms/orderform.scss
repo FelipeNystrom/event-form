@@ -145,6 +145,7 @@
       display: inline-block;
       flex: 1;
       transform: scale(1);
+      -webkit-appearance: checkbox;
     }
   }
 }
@@ -177,11 +178,19 @@
   transform: scale(1.5);
 }
 
-.checkboxes input {
-  border-style: none;
-  background-color: inherit;
-  margin: 0;
-  flex: 1;
-  padding: 0;
-  transform: scale(2);
+.checkboxes {
+  & label {
+    // margin-right: 5rem;
+    flex: 15;
+  }
+
+  & input {
+    -webkit-appearance: checkbox;
+    border-style: none;
+    background-color: inherit;
+    margin: 0;
+    flex: 1;
+    padding: 0;
+    transform: scale(2);
+  }
 }
