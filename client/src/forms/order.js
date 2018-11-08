@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import './order.css';
+import './order.scss';
 class Order extends Component {
   render() {
     const { match } = this.props;
@@ -11,6 +11,7 @@ class Order extends Component {
           <Link className="package" to={`${match.url}/basic`}>
             <div className="package-content">
               <div className="package-title">Basic</div>
+              <div className="package-title-secondary">(Gratis på mässan)</div>
               <ul className="package-specifics">
                 <li>
                   Vårt baspaket består av olika enstycksprover för att
@@ -25,6 +26,9 @@ class Order extends Component {
           <Link className="package" to={`${match.url}/premium`}>
             <div className="package-content">
               <div className="package-title">Premium</div>
+              <div className="package-title-secondary">
+                (Subventionerat pris)
+              </div>
               <ul className="package-specifics">
                 <li>
                   Vårt startpaket som kombinerar Plackers-prover med
@@ -40,6 +44,9 @@ class Order extends Component {
           <Link className="package" to={`${match.url}/platinum`}>
             <div className="package-content">
               <div className="package-title">Platinum</div>
+              <div className="package-title-secondary">
+                (Subventionerat pris)
+              </div>
               <ul className="package-specifics">
                 <li>
                   Vårt erbjudande där vi skräddarsyr och anpassar ett

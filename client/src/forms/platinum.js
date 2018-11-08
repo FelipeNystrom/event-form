@@ -58,8 +58,6 @@ class Platinum extends Component {
       acceptsTerms
     } = this.state;
     if (acceptsTerms) {
-      const REACT_APP_BASE_URL = window.location.host;
-
       const pltnmPkg = {
         companyName: companyNameInput,
         contactMail: contactMail,
@@ -80,7 +78,7 @@ class Platinum extends Component {
         }
       };
 
-      fetch(`${REACT_APP_BASE_URL}/api/pkg/platinum`, opts)
+      fetch(`/api/pkg/platinum`, opts)
         .then(res => {
           if (res.status === 200) {
             this.setState({

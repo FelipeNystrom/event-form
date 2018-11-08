@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   render() {
@@ -13,6 +13,7 @@ class App extends Component {
                 <Link to="/order">
                   <li>
                     <div className="main-list-title">Beställ prover</div>
+
                     <div className="main-list-content">
                       Välj mellan våra olika provpaket
                     </div>
