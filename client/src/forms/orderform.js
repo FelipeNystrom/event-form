@@ -109,7 +109,7 @@ class Orderform extends Component {
         sample => sample.selected === true
       );
 
-      let apiCall = `api/pkg/basic`;
+      let apiCall = `/api/pkg/basic`;
 
       const cntPkg = {
         samples: filteredSampleChoice,
@@ -127,7 +127,7 @@ class Orderform extends Component {
       };
 
       if (premium) {
-        apiCall = `api/pkg/premium`;
+        apiCall = `/api/pkg/premium`;
 
         cntPkg['companyAddress1'] = addressCompanyInput1;
         cntPkg['companyAddress2'] = addressCompanyInput2;
@@ -455,6 +455,7 @@ class Orderform extends Component {
                       onChange={this.handleChange}
                       value={zipCodeCompanyInput}
                       placeholder="Postnummer till ditt företag"
+                      required
                     />
                     <input
                       type="text"
@@ -462,6 +463,7 @@ class Orderform extends Component {
                       onChange={this.handleChange}
                       value={regionCompanyInput}
                       placeholder="Postort"
+                      required
                     />
                     <input
                       type="text"
