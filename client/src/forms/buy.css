@@ -16,7 +16,8 @@
 }
 
 .buy-message {
-  margin: 4rem 0;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
   font-size: 150%;
   font-weight: bold;
   text-align: center;
