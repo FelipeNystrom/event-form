@@ -39,6 +39,7 @@ class Newsletter extends Component {
     const { newsletterInput, subscribersNameInput, acceptsTerms } = this.state;
 
     if (acceptsTerms) {
+      const { REACT_APP_BASE_URL } = process.env;
       const opts = {
         method: 'POST',
         body: JSON.stringify({
