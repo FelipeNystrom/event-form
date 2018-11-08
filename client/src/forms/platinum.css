@@ -41,7 +41,7 @@
   transition: background-color 100ms ease-in-out;
   font-size: 200%;
   max-height: 3rem;
-  max-height: 2.5rem;
+  min-height: 2.5rem;
 }
 
 .platinum-form input[type='button']:active,
