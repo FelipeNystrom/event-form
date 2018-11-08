@@ -51,7 +51,7 @@ class Newsletter extends Component {
         }
       };
 
-      fetch(`api/newsletter`, opts)
+      fetch(`${REACT_APP_BASE_URL}api/newsletter`, opts)
         .then(res => {
           if (res.status === 200) {
             this.setState({

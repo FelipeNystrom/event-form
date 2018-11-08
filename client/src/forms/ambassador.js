@@ -67,7 +67,7 @@ class Ambassador extends Component {
         })
       };
 
-      fetch(`api/ambassador`, opts)
+      fetch(`${REACT_APP_BASE_URL}api/ambassador`, opts)
         .then(res => {
           if (res.status === 200) {
             this.setState({
