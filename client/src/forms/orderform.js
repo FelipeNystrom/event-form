@@ -280,7 +280,7 @@ class Orderform extends Component {
               refresh: false,
               show: false,
               acceptsTerms: false,
-              next: true
+              next: false
             });
           }
         })
