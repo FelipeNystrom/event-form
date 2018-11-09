@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Modal from './modal';
-import './platinum.css';
+import './platinum.scss';
 
 class Platinum extends Component {
   state = {
@@ -11,12 +11,13 @@ class Platinum extends Component {
     addressCompanyInput2: '',
     zipCodeCompanyInput: '',
     regionCompanyInput: '',
-    sellingToday: { string: '', state: false },
+    sellingToday: '',
     otherInput: '',
     errorMsg: '',
     successMsg: '',
     redirect: false,
     refresh: false,
+
     next: false,
     show: false,
     acceptsTerms: false
@@ -195,6 +196,10 @@ class Platinum extends Component {
     );
   };
 
+  handleChangeChk = (nameOfState, localState) => {
+    this.setState({ [nameOfState]: !localState });
+  };
+
   render() {
     const {
       companyNameInput,
@@ -266,7 +271,7 @@ class Platinum extends Component {
                   name="addressCompanyInput1"
                   onChange={this.handleChange}
                   value={addressCompanyInput1}
-                  placeholder="Företagsaddress 1"
+                  placeholder="Fakturadress 1"
                   required
                 />
                 <input
@@ -274,7 +279,7 @@ class Platinum extends Component {
                   name="addressCompanyInput2"
                   onChange={this.handleChange}
                   value={addressCompanyInput2}
-                  placeholder="Företagsaddress 2"
+                  placeholder="Fakturadress 2"
                 />
               </div>
               <div className="basic-form-row">
@@ -310,6 +315,7 @@ class Platinum extends Component {
                   <option value="Vet ej">Vet ej</option>
                 </select>
               </div>
+
               <textarea
                 name="otherInput"
                 value={otherInput}

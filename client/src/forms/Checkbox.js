@@ -20,14 +20,9 @@ class Checkbox extends Component {
   handleChecked() {
     const { changeParentState } = this.props;
     const { name, isChecked } = this.state;
-    console.log(isChecked);
-    if (name !== 'dontKnow' || 'noBut' || 'no' || 'yes') {
-      this.setState({ isChecked: !this.state.isChecked }, () => {
-        changeParentState(name, isChecked);
-      });
-    } else {
+    this.setState({ isChecked: !this.state.isChecked }, () => {
       changeParentState(name, isChecked);
-    }
+    });
   }
 
   render() {

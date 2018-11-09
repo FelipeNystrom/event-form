@@ -34,19 +34,21 @@ class Orderform extends Component {
     companyNameInput: '',
     nameOfRecipient: '',
     sellingToday: '...',
+    sameAddress: false,
     missingFields: false,
     otherInput: '',
     errorMsg: '',
     successMsg: '',
     redirect: false,
+    disabled: false,
     refresh: false,
     show: false,
     acceptsTerms: false,
     next: false
   };
 
-  componentDidUpdate() {
-    const { redirect, refresh } = this.state;
+  componentDidUpdate(_, prevState) {
+    const { redirect, refresh, sameAddress } = this.state;
 
     if (redirect) {
       setTimeout(() => {
@@ -58,6 +60,14 @@ class Orderform extends Component {
       setTimeout(() => {
         this.forceUpdate();
       }, 4500);
+    }
+    console.log(!prevState.sameAddress && sameAddress);
+    if (!prevState.sameAddress && sameAddress) {
+      this.sameAddress();
+    }
+
+    if (prevState.sameAddress && !sameAddress) {
+      this.emptyAddress();
     }
   }
 
@@ -106,6 +116,39 @@ class Orderform extends Component {
 
   handleChangeChk = (nameOfState, localState) => {
     this.setState({ [nameOfState]: !localState });
+  };
+
+  sameAddress = () => {
+    const {
+      addressInput1,
+      addressInput2,
+      zipCodeInput,
+      regionInput
+    } = this.state;
+
+    this.setState(
+      {
+        addressCompanyInput1: addressInput1,
+        addressCompanyInput2: addressInput2,
+        zipCodeCompanyInput: zipCodeInput,
+        regionCompanyInput: regionInput,
+        disabled: true
+      },
+      console.log
+    );
+  };
+
+  emptyAddress = () => {
+    this.setState(
+      {
+        addressCompanyInput1: '',
+        addressCompanyInput2: '',
+        zipCodeCompanyInput: '',
+        regionCompanyInput: '',
+        disabled: false
+      },
+      console.log
+    );
   };
 
   handleSubmit = () => {
@@ -291,6 +334,7 @@ class Orderform extends Component {
       otherInput,
       errorMsg,
       successMsg,
+      disabled,
       show,
       next
     } = this.state;
@@ -482,6 +526,32 @@ class Orderform extends Component {
               ) : (
                 <Fragment>
                   <div className="next-title">Faktura information</div>
+                  <div className="flex-row">
+                    <div className="same-address">
+                      <label>Samma adress som leveransadress</label>
+                      <Checkbox
+                        changeParentState={this.handleChangeChk}
+                        nameOfBox="sameAddress"
+                      />
+                    </div>
+                    <div className="selling-today">
+                      <label>Vi säljer Plackers idag</label>
+                      <select
+                        name="sellingToday"
+                        value={sellingToday}
+                        onChange={this.handleChange}
+                      >
+                        <option value="Ja">...</option>
+
+                        <option value="Ja">Ja</option>
+                        <option value="Nej">Nej</option>
+                        <option value="Nej – men kan tänka oss det">
+                          Nej – men kan tänka oss det
+                        </option>
+                        <option value="Vet ej">Vet ej</option>
+                      </select>
+                    </div>
+                  </div>
                   <div className="basic-form-row">
                     <input
                       type="text"
@@ -490,6 +560,7 @@ class Orderform extends Component {
                       value={addressCompanyInput1}
                       placeholder="Företagsaddress 1"
                       required
+                      disabled={disabled}
                     />
                     <input
                       type="text"
@@ -497,6 +568,7 @@ class Orderform extends Component {
                       onChange={this.handleChange}
                       value={addressCompanyInput2}
                       placeholder="Företagsaddress 2"
+                      disabled={disabled}
                     />
                   </div>
                   <div className="basic-form-row">
@@ -507,6 +579,7 @@ class Orderform extends Component {
                       value={zipCodeCompanyInput}
                       placeholder="Postnummer till ditt företag"
                       required
+                      disabled={disabled}
                     />
                     <input
                       type="text"
@@ -515,6 +588,7 @@ class Orderform extends Component {
                       value={regionCompanyInput}
                       placeholder="Postort"
                       required
+                      disabled={disabled}
                     />
                     <input
                       type="text"
@@ -522,26 +596,9 @@ class Orderform extends Component {
                       onChange={this.handleChange}
                       value={companyNameInput}
                       placeholder="Företagets namn"
-                      required
                     />
                   </div>
-                  <div className="selling-today">
-                    <label>Vi säljer Plackers idag</label>
-                    <select
-                      name="sellingToday"
-                      value={sellingToday}
-                      onChange={this.handleChange}
-                    >
-                      <option value="Ja">...</option>
 
-                      <option value="Ja">Ja</option>
-                      <option value="Nej">Nej</option>
-                      <option value="Nej – men kan tänka oss det">
-                        Nej – men kan tänka oss det
-                      </option>
-                      <option value="Vet ej">Vet ej</option>
-                    </select>
-                  </div>
                   <textarea
                     name="otherInput"
                     value={otherInput}

@@ -196,18 +196,53 @@
   }
 }
 
-.selling-today {
-  margin: 1rem 0;
-  padding: 1%;
-  & select {
-    background-color: transparent;
-    padding: 1%;
-    margin-left: 2rem;
-    font-size: 100%;
-    width: 20rem;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  min-height: 6rem;
+  width: 95%;
+  margin: 0 auto;
+
+  & .selling-today {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    margin: 1rem 0;
+    padding: 1% 0;
+    & label {
+      font-size: 70%;
+      flex: 4;
+    }
+
+    & select {
+      background-color: transparent;
+      padding: 2%;
+      font-size: 70%;
+      flex: 1;
+      border: 0.1rem solid hsla(0, 0%, 75%, 0.7);
+      border-radius: 0.2rem;
+    }
+
+    & option {
+      font-size: 100%;
+    }
   }
 
-  & option {
-    font-size: 70%;
+  & .same-address {
+    display: flex;
+    flex-direction: row;
+    flex: 3;
+    margin: 1rem 0;
+    padding: 1%;
+    & input {
+      -webkit-appearance: checkbox;
+      flex: 1;
+      transform: scale(0.6);
+    }
+    & label {
+      flex: 3;
+      padding: 1rem 0;
+      font-size: 130%;
+    }
   }
 }
