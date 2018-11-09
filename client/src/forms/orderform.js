@@ -34,6 +34,7 @@ class Orderform extends Component {
     companyNameInput: '',
     nameOfRecipient: '',
     sellingToday: '...',
+    reference: '',
     sameAddress: false,
     missingFields: false,
     otherInput: '',
@@ -79,21 +80,36 @@ class Orderform extends Component {
       regionInput,
       nameInput,
       phoneNumberInput,
-      mailInput
+      mailInput,
+      next,
+      companyNameInput
     } = this.state;
-
-    if (
-      (nameOfRecipient.length ||
-        addressInput1.length ||
-        zipCodeInput.length ||
-        regionInput.length ||
-        nameInput.length ||
-        phoneNumberInput.length ||
-        mailInput.length) === 0
-    ) {
-      return false;
+    if(!next){
+      if (
+        (nameOfRecipient.length ||
+          addressInput1.length ||
+          zipCodeInput.length ||
+          regionInput.length ||
+          nameInput.length ||
+          phoneNumberInput.length ||
+          mailInput.length) === 0
+      ) {
+        return false;
+      } else {
+        return true;
+      }
     }
-    return true;
+
+
+    if (next) {
+      console.log(companyNameInput.length === 0);
+      if (companyNameInput.length === 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
   };
 
   nextPage = e => {
@@ -165,6 +181,7 @@ class Orderform extends Component {
       bigClinic,
       newsletter,
       nameInput,
+      reference,
       addressCompanyInput1,
       addressCompanyInput2,
       zipCodeCompanyInput,
@@ -199,7 +216,8 @@ class Orderform extends Component {
         agent: agent,
         isBigClinic: bigClinic,
         wantNewsletter: newsletter,
-        contactName: nameInput
+        contactName: nameInput,
+        
       };
 
       if (premium) {
@@ -212,6 +230,7 @@ class Orderform extends Component {
         cntPkg['companyName'] = companyNameInput;
         cntPkg['otherInput'] = otherInput;
         cntPkg['sellingToday'] = sellingToday;
+        cntPkg['reference'] = reference;
       }
 
       const opts = {
@@ -242,17 +261,26 @@ class Orderform extends Component {
               regionInput: '',
               bigClinic: false,
               newsletter: true,
-              nameInput: '',
               agent: false,
+              nameInput: '',
               addressCompanyInput1: '',
               addressCompanyInput2: '',
               zipCodeCompanyInput: '',
               regionCompanyInput: '',
               companyNameInput: '',
-              successMsg: 'Tack för att du vill prova våra produkter!',
+              nameOfRecipient: '',
+              sellingToday: '...',
+              sameAddress: false,
+              missingFields: false,
+              otherInput: '',
               errorMsg: '',
+              successMsg: 'Tack för att du vill prova våra produkter!',
               redirect: true,
-              next: false
+              disabled: false,
+              refresh: false,
+              show: false,
+              acceptsTerms: false,
+              next: true
             });
           }
         })
@@ -297,15 +325,12 @@ class Orderform extends Component {
 
   hideModal = acceptStatus => {
     if (acceptStatus === 'ok') {
-      return this.setState({ show: false });
+      return this.setState({ show: false, missingFields: false });
     }
 
-    this.setState(
-      { show: false, missingFields: false, acceptsTerms: acceptStatus },
-      () => {
-        this.handleSubmit();
-      }
-    );
+    this.setState({ show: false, acceptsTerms: acceptStatus }, () => {
+      this.handleSubmit();
+    });
   };
 
   sortToRows = (arr1, arr2, arr3) =>
@@ -335,6 +360,7 @@ class Orderform extends Component {
       errorMsg,
       successMsg,
       disabled,
+      reference,
       show,
       next
     } = this.state;
@@ -558,8 +584,7 @@ class Orderform extends Component {
                       name="addressCompanyInput1"
                       onChange={this.handleChange}
                       value={addressCompanyInput1}
-                      placeholder="Företagsaddress 1"
-                      required
+                      placeholder="Företagsaddress 1 (frivilligt)"
                       disabled={disabled}
                     />
                     <input
@@ -567,28 +592,34 @@ class Orderform extends Component {
                       name="addressCompanyInput2"
                       onChange={this.handleChange}
                       value={addressCompanyInput2}
-                      placeholder="Företagsaddress 2"
+                      placeholder="Företagsaddress 2 (frivilligt)"
                       disabled={disabled}
                     />
-                  </div>
-                  <div className="basic-form-row">
                     <input
                       type="text"
                       name="zipCodeCompanyInput"
                       onChange={this.handleChange}
                       value={zipCodeCompanyInput}
-                      placeholder="Postnummer till ditt företag"
-                      required
+                      placeholder="Postnummer (frivilligt)"
                       disabled={disabled}
                     />
+                  </div>
+                  <div className="basic-form-row">
+                    
                     <input
                       type="text"
                       name="regionCompanyInput"
                       onChange={this.handleChange}
                       value={regionCompanyInput}
-                      placeholder="Postort"
-                      required
+                      placeholder="Postort (frivilligt)"
                       disabled={disabled}
+                    />
+                    <input
+                      type="text"
+                      name="reference"
+                      onChange={this.handleChange}
+                      value={reference}
+                      placeholder="Referens (frivilligt)"
                     />
                     <input
                       type="text"
@@ -603,7 +634,7 @@ class Orderform extends Component {
                     name="otherInput"
                     value={otherInput}
                     onChange={this.handleChange}
-                    placeholder="Övriga önskemål"
+                    placeholder="Övriga önskemål (frivilligt)"
                     cols="10"
                     rows="6"
                   />

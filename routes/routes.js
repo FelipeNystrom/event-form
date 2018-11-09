@@ -8,8 +8,6 @@ const {
   addRowToPlatinumPkg
 } = require('../spreadsheets');
 
-router.get('/', (req, res) => {});
-
 router.post('/newsletter', async (req, res) => {
   const { name, mail } = req.body;
   console.log(req.body);
@@ -23,14 +21,11 @@ router.post('/newsletter', async (req, res) => {
   }
 });
 
-router.post('/order', (req, res) => {});
-
 router.post('/ambassador', async (req, res) => {
   const {
     clinicName,
     clinicAddress,
-    contactFirstname,
-    contactLastname,
+    contactName,
     contactPhoneNumber,
     contactMail
   } = req.body;
@@ -39,8 +34,7 @@ router.post('/ambassador', async (req, res) => {
     await addRowToAmbassador(
       clinicName,
       clinicAddress,
-      contactFirstname,
-      contactLastname,
+      contactName,
       contactPhoneNumber,
       contactMail
     );
@@ -65,7 +59,8 @@ router.post('/pkg/basic', async (req, res) => {
     agent,
     isBigClinic,
     wantNewsletter,
-    contactName
+    contactName,
+    reference
   } = req.body.cntPkg;
 
   console.log(req.body.cntPkg);
@@ -120,7 +115,8 @@ router.post('/pkg/premium', async (req, res) => {
     companyPostalRegion,
     companyName,
     otherInput,
-    sellingToday
+    sellingToday,
+    reference
   } = req.body.cntPkg;
 
   const samplesIds = samples.map(sample => {
@@ -146,7 +142,8 @@ router.post('/pkg/premium', async (req, res) => {
       companyPostalRegion,
       companyName,
       sellingToday,
-      otherInput
+      otherInput,
+      reference
     );
     console.log('sucess inserting row to premium package sheet');
     if (wantNewsletter === true) {
