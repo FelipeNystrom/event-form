@@ -154,17 +154,17 @@ class Platinum extends Component {
     } = this.state;
     if (next) {
       if (
-        (addressCompanyInput1.length ||
-          zipCodeCompanyInput.length ||
-          regionCompanyInput.length) === 0
+        addressCompanyInput1.length ||
+        zipCodeCompanyInput.length ||
+        regionCompanyInput.length === 0
       ) {
         return false;
       }
     }
     if (
-      (companyNameInput.length ||
-        contactMail.length ||
-        contactPhonenumberInput.length) === 0
+      companyNameInput.length ||
+      contactMail.length ||
+      contactPhonenumberInput.length === 0
     ) {
       return false;
     } else {

@@ -86,20 +86,19 @@ class Orderform extends Component {
     } = this.state;
 
     if (next) {
-      console.log(companyNameInput.length === 0);
       if (companyNameInput.length === 0) {
         return false;
-      } 
+      }
     }
 
     if (
-      (nameOfRecipient.length ||
-        addressInput1.length ||
-        zipCodeInput.length ||
-        regionInput.length ||
-        nameInput.length ||
-        phoneNumberInput.length ||
-        mailInput.length) === 0
+      nameOfRecipient.length ||
+      addressInput1.length ||
+      zipCodeInput.length ||
+      regionInput.length ||
+      nameInput.length ||
+      phoneNumberInput.length ||
+      mailInput.length === 0
     ) {
       return false;
     } else {
