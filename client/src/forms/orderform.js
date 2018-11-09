@@ -84,29 +84,26 @@ class Orderform extends Component {
       next,
       companyNameInput
     } = this.state;
-    if (!next) {
-      if (
-        (nameOfRecipient.length ||
-          addressInput1.length ||
-          zipCodeInput.length ||
-          regionInput.length ||
-          nameInput.length ||
-          phoneNumberInput.length ||
-          mailInput.length) === 0
-      ) {
-        return false;
-      } else {
-        return true;
-      }
-    }
 
     if (next) {
       console.log(companyNameInput.length === 0);
       if (companyNameInput.length === 0) {
         return false;
-      } else {
-        return true;
-      }
+      } 
+    }
+
+    if (
+      (nameOfRecipient.length ||
+        addressInput1.length ||
+        zipCodeInput.length ||
+        regionInput.length ||
+        nameInput.length ||
+        phoneNumberInput.length ||
+        mailInput.length) === 0
+    ) {
+      return false;
+    } else {
+      return true;
     }
   };
 
