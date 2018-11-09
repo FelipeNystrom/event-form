@@ -185,7 +185,7 @@ class Platinum extends Component {
 
   hideModal = acceptStatus => {
     if (acceptStatus === 'ok') {
-      return this.setState({ show: false });
+      return this.setState({ show: false, missingFields: false });
     }
 
     this.setState(

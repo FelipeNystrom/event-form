@@ -84,7 +84,7 @@ class Orderform extends Component {
       next,
       companyNameInput
     } = this.state;
-    if(!next){
+    if (!next) {
       if (
         (nameOfRecipient.length ||
           addressInput1.length ||
@@ -100,7 +100,6 @@ class Orderform extends Component {
       }
     }
 
-
     if (next) {
       console.log(companyNameInput.length === 0);
       if (companyNameInput.length === 0) {
@@ -109,7 +108,6 @@ class Orderform extends Component {
         return true;
       }
     }
-
   };
 
   nextPage = e => {
@@ -216,8 +214,7 @@ class Orderform extends Component {
         agent: agent,
         isBigClinic: bigClinic,
         wantNewsletter: newsletter,
-        contactName: nameInput,
-        
+        contactName: nameInput
       };
 
       if (premium) {
@@ -280,7 +277,7 @@ class Orderform extends Component {
               refresh: false,
               show: false,
               acceptsTerms: false,
-              next: true
+              next: false
             });
           }
         })
@@ -605,7 +602,6 @@ class Orderform extends Component {
                     />
                   </div>
                   <div className="basic-form-row">
-                    
                     <input
                       type="text"
                       name="regionCompanyInput"
