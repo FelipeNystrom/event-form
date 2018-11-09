@@ -95,9 +95,7 @@ class Orderform extends Component {
           mailInput.length) === 0
       ) {
         return false;
-      } else {
-        return true;
-      }
+      } 
     }
 
 
