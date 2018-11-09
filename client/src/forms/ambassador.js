@@ -6,10 +6,11 @@ class Ambassador extends Component {
   state = {
     clinicNameInput: '',
     clinicAddressInput: '',
-    contactFirstNameInput: '',
     contactNameInput: '',
     contactMailInput: '',
+    contactNumberInput: '',
     succesMsg: '',
+    missingFields: false,
     errorMsg: '',
     redirect: false,
     refresh: false,
@@ -73,6 +74,7 @@ class Ambassador extends Component {
               contactNumberInput: '',
               contactMailInput: '',
               succesMsg: 'Tack för att du vill vara vår ambassadör',
+              errorMsg: '',
               redirect: true
             });
           }
@@ -85,7 +87,7 @@ class Ambassador extends Component {
             contactName: '',
             contactNumberInput: '',
             contactMailInput: '',
-            errorMsg: 'err',
+            errorMsg: err,
             refresh: true
           });
         });
@@ -96,15 +98,47 @@ class Ambassador extends Component {
     }
   };
 
+  allFields = () => {
+    const {
+      clinicNameInput,
+      clinicAddressInput,
+      contactNameInput,
+      contactNumberInput,
+      contactMailInput
+    } = this.state;
+
+    if (
+      (clinicNameInput.length ||
+        clinicAddressInput.length ||
+        contactNameInput.length ||
+        contactNumberInput.length ||
+        contactMailInput.length) === 0
+    ) {
+      return false;
+    }
+    return true;
+  };
   showModal = e => {
     e.preventDefault();
-    this.setState({ show: true });
+
+    if (this.allFields()) {
+      this.setState({ show: true });
+    } else {
+      this.setState({ show: true, missingFields: true });
+    }
   };
 
   hideModal = acceptStatus => {
-    this.setState({ show: false, acceptsTerms: acceptStatus }, () => {
-      this.handleSubmit();
-    });
+    if (acceptStatus === 'ok') {
+      return this.setState({ show: false });
+    }
+
+    this.setState(
+      { show: false, missingFields: false, acceptsTerms: acceptStatus },
+      () => {
+        this.handleSubmit();
+      }
+    );
   };
 
   render() {
@@ -116,12 +150,17 @@ class Ambassador extends Component {
       contactMailInput,
       succesMsg,
       errorMsg,
+      missingFields,
       show
     } = this.state;
 
     return (
       <Fragment>
-        <Modal hideModal={this.hideModal} show={show} />
+        <Modal
+          hideModal={this.hideModal}
+          show={show}
+          missingFields={missingFields}
+        />
         {succesMsg && <div className="success">{succesMsg}</div>}
         {errorMsg && <div className="error">{errorMsg}</div>}
         <div className="section-title">

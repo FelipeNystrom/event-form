@@ -11,7 +11,8 @@ class Newsletter extends Component {
     redirect: false,
     refresh: false,
     acceptsTerms: false,
-    show: false
+    show: false,
+    missingFields: false
   };
 
   componentDidUpdate() {
@@ -79,16 +80,35 @@ class Newsletter extends Component {
       });
     }
   };
+  allFields = () => {
+    const { newsletterInput, subscribersNameInput } = this.state;
 
+    if ((newsletterInput.length || subscribersNameInput.length) === 0) {
+      return false;
+    }
+    return true;
+  };
   showModal = e => {
     e.preventDefault();
-    this.setState({ show: true });
+
+    if (this.allFields()) {
+      this.setState({ show: true });
+    } else {
+      this.setState({ show: true, missingFields: true });
+    }
   };
 
   hideModal = acceptStatus => {
-    this.setState({ show: false, acceptsTerms: acceptStatus }, () => {
-      this.handleSubmit();
-    });
+    if (acceptStatus === 'ok') {
+      return this.setState({ show: false });
+    }
+
+    this.setState(
+      { show: false, missingFields: false, acceptsTerms: acceptStatus },
+      () => {
+        this.handleSubmit();
+      }
+    );
   };
 
   render() {
@@ -97,11 +117,16 @@ class Newsletter extends Component {
       subscribersNameInput,
       errorMsg,
       successMsg,
+      missingFields,
       show
     } = this.state;
     return (
       <Fragment>
-        <Modal hideModal={this.hideModal} show={show} />
+        <Modal
+          hideModal={this.hideModal}
+          show={show}
+          missingFields={missingFields}
+        />
         {successMsg && <div className="success">{successMsg}</div>}
         {errorMsg && <div className="error">{errorMsg}</div>}
         <div className="section-title">
@@ -114,6 +139,7 @@ class Newsletter extends Component {
             onChange={this.handleChange}
             value={subscribersNameInput}
             placeholder="Ditt fulla namn"
+            required
           />
           <input
             type="email"

@@ -72,6 +72,7 @@
   display: row;
   justify-content: space-around;
   width: 100%;
+  margin: 1rem 0;
 }
 
 .basic-form input {
@@ -89,7 +90,7 @@
 .basic-form textarea {
   width: 100%;
   font-size: 200%;
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: 3%;
   border: 0;
 }
@@ -192,5 +193,21 @@
     flex: 1;
     padding: 0;
     transform: scale(2);
+  }
+}
+
+.selling-today {
+  margin: 1rem 0;
+  padding: 1%;
+  & select {
+    background-color: transparent;
+    padding: 1%;
+    margin-left: 2rem;
+    font-size: 100%;
+    width: 20rem;
+  }
+
+  & option {
+    font-size: 70%;
   }
 }

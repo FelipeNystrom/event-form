@@ -4,14 +4,18 @@ import Sample from './sample';
 import Checkbox from './Checkbox';
 import Modal from './modal';
 import premiumPkg from '../assets/Plackers_iPad.png';
+import pkg1 from '../assets/pkg1.jpg';
+import pkg2 from '../assets/pkg2.jpg';
+import pkg3 from '../assets/pkg3.jpg';
+import pkg4 from '../assets/pkg4.jpg';
 
 class Orderform extends Component {
   state = {
     samples: [
-      { selected: true, id: 1 },
-      { selected: false, id: 2 },
-      { selected: false, id: 3 },
-      { selected: false, id: 4 }
+      { selected: true, id: 1, src: pkg1 },
+      { selected: false, id: 2, src: pkg2 },
+      { selected: false, id: 3, src: pkg3 },
+      { selected: false, id: 4, src: pkg4 }
     ],
     addressInput1: '',
     addressInput2: '',
@@ -29,7 +33,8 @@ class Orderform extends Component {
     regionCompanyInput: '',
     companyNameInput: '',
     nameOfRecipient: '',
-    sellingToday: { string: '', state: false },
+    sellingToday: '...',
+    missingFields: false,
     otherInput: '',
     errorMsg: '',
     successMsg: '',
@@ -56,28 +61,51 @@ class Orderform extends Component {
     }
   }
 
+  allFields = () => {
+    const {
+      nameOfRecipient,
+      addressInput1,
+      zipCodeInput,
+      regionInput,
+      nameInput,
+      phoneNumberInput,
+      mailInput
+    } = this.state;
+
+    if (
+      (nameOfRecipient.length ||
+        addressInput1.length ||
+        zipCodeInput.length ||
+        regionInput.length ||
+        nameInput.length ||
+        phoneNumberInput.length ||
+        mailInput.length) === 0
+    ) {
+      return false;
+    }
+    return true;
+  };
+
   nextPage = e => {
-    this.setState({ next: !this.state.next });
+    e.preventDefault();
+    if (this.allFields()) {
+      this.setState({ next: !this.state.next });
+    } else {
+      this.setState({ show: true, missingFields: true });
+    }
+
+    return;
   };
 
   handleChange = e => {
     e.preventDefault();
+    console.log(e.target.name);
+    console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleChangeChk = (nameOfState, localState) => {
     this.setState({ [nameOfState]: !localState });
-  };
-
-  setSellingToday = (name, localState) => {
-    const stateCopy = [...this.state.sellingToday];
-    if (this.state.sellingToday.string === '') {
-      this.setState({ sellingToday: { string: name, state: localState } });
-    }
-
-    if (name !== stateCopy.string && stateCopy.state !== false) {
-      this.setState({ sellingToday: { string: name, state: localState } });
-    }
   };
 
   handleSubmit = () => {
@@ -104,6 +132,10 @@ class Orderform extends Component {
       agent,
       acceptsTerms
     } = this.state;
+    const { basic } = this.props;
+    if (!basic && !this.allFields()) {
+      return this.setState({ show: true, missingFields: true });
+    }
 
     if (acceptsTerms) {
       const filteredSampleChoice = samples.filter(
@@ -175,6 +207,7 @@ class Orderform extends Component {
               regionCompanyInput: '',
               companyNameInput: '',
               successMsg: 'Tack för att du vill prova våra produkter!',
+              errorMsg: '',
               redirect: true,
               next: false
             });
@@ -212,13 +245,24 @@ class Orderform extends Component {
 
   showModal = e => {
     e.preventDefault();
-    this.setState({ show: true });
+    if (this.allFields()) {
+      this.setState({ show: true });
+    } else {
+      this.setState({ show: true, missingFields: true });
+    }
   };
 
   hideModal = acceptStatus => {
-    this.setState({ show: false, acceptsTerms: acceptStatus }, () => {
-      this.handleSubmit();
-    });
+    if (acceptStatus === 'ok') {
+      return this.setState({ show: false });
+    }
+
+    this.setState(
+      { show: false, missingFields: false, acceptsTerms: acceptStatus },
+      () => {
+        this.handleSubmit();
+      }
+    );
   };
 
   sortToRows = (arr1, arr2, arr3) =>
@@ -240,6 +284,8 @@ class Orderform extends Component {
       addressCompanyInput2,
       zipCodeCompanyInput,
       regionCompanyInput,
+      sellingToday,
+      missingFields,
       companyNameInput,
       nameOfRecipient,
       otherInput,
@@ -262,6 +308,7 @@ class Orderform extends Component {
           name={sample.id}
           handleClick={this.handleSelect}
           selected={sample.selected}
+          src={sample.src}
         />
       );
     });
@@ -272,6 +319,7 @@ class Orderform extends Component {
           name={sample.id}
           handleClick={this.handleSelect}
           selected={sample.selected}
+          src={sample.src}
         />
       );
     });
@@ -282,12 +330,16 @@ class Orderform extends Component {
 
         <Fragment>
           {basic ? (
-            <div className="section-title">Baspaktet</div>
+            <div className="section-title">Baspaketet</div>
           ) : (
             <div className="section-title">Premiumpaket</div>
           )}
           <Fragment>
-            <Modal hideModal={this.hideModal} show={show} />
+            <Modal
+              hideModal={this.hideModal}
+              show={show}
+              missingFields={missingFields}
+            />
             <form className="basic-form">
               {!next ? (
                 <Fragment>
@@ -331,7 +383,7 @@ class Orderform extends Component {
                         name="addressInput2"
                         onChange={this.handleChange}
                         value={addressInput2}
-                        placeholder="Address 2"
+                        placeholder="Address 2 (frivilligt)"
                       />
                       <input
                         type="text"
@@ -474,43 +526,21 @@ class Orderform extends Component {
                     />
                   </div>
                   <div className="selling-today">
-                    <div className="selling-today-title">
-                      Vi säljer Plackers idag
-                    </div>
-                    <div className="options">
-                      <label>
-                        Vet ej
-                        <Checkbox
-                          changeParentState={this.setSellingToday}
-                          nameOfBox="dontKnow"
-                          sellingToday
-                        />
-                      </label>
-                      <label>
-                        Ja
-                        <Checkbox
-                          changeParentState={this.setSellingToday}
-                          nameOfBox="yes"
-                          sellingToday
-                        />
-                      </label>
-                      <label>
-                        Nej
-                        <Checkbox
-                          changeParentState={this.setSellingToday}
-                          nameOfBox="no"
-                          sellingToday
-                        />
-                      </label>
-                      <label>
+                    <label>Vi säljer Plackers idag</label>
+                    <select
+                      name="sellingToday"
+                      value={sellingToday}
+                      onChange={this.handleChange}
+                    >
+                      <option value="Ja">...</option>
+
+                      <option value="Ja">Ja</option>
+                      <option value="Nej">Nej</option>
+                      <option value="Nej – men kan tänka oss det">
                         Nej – men kan tänka oss det
-                        <Checkbox
-                          changeParentState={this.setSellingToday}
-                          nameOfBox="noBut"
-                          sellingToday
-                        />
-                      </label>
-                    </div>
+                      </option>
+                      <option value="Vet ej">Vet ej</option>
+                    </select>
                   </div>
                   <textarea
                     name="otherInput"

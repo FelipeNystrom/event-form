@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Checkbox from './Checkbox';
 import Modal from './modal';
 import './platinum.css';
 
@@ -57,6 +56,11 @@ class Platinum extends Component {
       otherInput,
       acceptsTerms
     } = this.state;
+
+    if (!this.allFields()) {
+      return this.setState({ show: true, missingFields: true });
+    }
+
     if (acceptsTerms) {
       const pltnmPkg = {
         companyName: companyNameInput,
@@ -118,7 +122,12 @@ class Platinum extends Component {
   };
 
   handleNext = () => {
-    this.setState({ next: true });
+    if (this.allFields()) {
+      this.setState({ next: true });
+    } else {
+      this.setState({ show: true, missingFields: true });
+    }
+    return;
   };
 
   setSellingToday = (name, localState) => {
@@ -132,15 +141,58 @@ class Platinum extends Component {
     }
   };
 
+  allFields = () => {
+    const {
+      companyNameInput,
+      contactMail,
+      contactPhonenumberInput,
+      addressCompanyInput1,
+      zipCodeCompanyInput,
+      regionCompanyInput,
+      next
+    } = this.state;
+    if (next) {
+      if (
+        (addressCompanyInput1.length ||
+          zipCodeCompanyInput.length ||
+          regionCompanyInput.length) === 0
+      ) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+    if (
+      (companyNameInput.length ||
+        contactMail.length ||
+        contactPhonenumberInput.length) === 0
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
   showModal = e => {
     e.preventDefault();
-    this.setState({ show: true });
+
+    if (this.allFields()) {
+      this.setState({ show: true });
+    } else {
+      this.setState({ show: true, missingFields: true });
+    }
   };
 
   hideModal = acceptStatus => {
-    this.setState({ show: false, acceptsTerms: acceptStatus }, () => {
-      this.handleSubmit();
-    });
+    if (acceptStatus === 'ok') {
+      return this.setState({ show: false });
+    }
+
+    this.setState(
+      { show: false, missingFields: false, acceptsTerms: acceptStatus },
+      () => {
+        this.handleSubmit();
+      }
+    );
   };
 
   render() {
@@ -152,11 +204,13 @@ class Platinum extends Component {
       addressCompanyInput2,
       zipCodeCompanyInput,
       regionCompanyInput,
+      sellingToday,
       otherInput,
       next,
       errorMsg,
       successMsg,
-      show
+      show,
+      missingFields
     } = this.state;
     return (
       <Fragment>
@@ -164,7 +218,11 @@ class Platinum extends Component {
         {errorMsg && <div className="error">{errorMsg}</div>}
         <div className="section-title">Platinumpaket</div>
         <form className="platinum-form" onSubmit={this.handleSubmit}>
-          <Modal hideModal={this.hideModal} show={show} />
+          <Modal
+            hideModal={this.hideModal}
+            show={show}
+            missingFields={missingFields}
+          />
           {!next ? (
             <Fragment>
               <div className="package-description">
@@ -236,39 +294,21 @@ class Platinum extends Component {
                 />
               </div>
               <div className="selling-today">
-                <div className="selling-today-title">
-                  Vi säljer Plackers idag
-                </div>
-                <div className="options">
-                  <label>
-                    Vet ej
-                    <Checkbox
-                      changeParentState={this.setSellingToday}
-                      nameOfBox="dontKnow"
-                    />
-                  </label>
-                  <label>
-                    Ja
-                    <Checkbox
-                      changeParentState={this.setSellingToday}
-                      nameOfBox="yes"
-                    />
-                  </label>
-                  <label>
-                    Nej
-                    <Checkbox
-                      changeParentState={this.setSellingToday}
-                      nameOfBox="no"
-                    />
-                  </label>
-                  <label>
+                <label>Vi säljer Plackers idag</label>
+                <select
+                  name="sellingToday"
+                  value={sellingToday}
+                  onChange={this.handleChange}
+                >
+                  <option value="Ja">...</option>
+
+                  <option value="Ja">Ja</option>
+                  <option value="Nej">Nej</option>
+                  <option value="Nej – men kan tänka oss det">
                     Nej – men kan tänka oss det
-                    <Checkbox
-                      changeParentState={this.setSellingToday}
-                      nameOfBox="noBut"
-                    />
-                  </label>
-                </div>
+                  </option>
+                  <option value="Vet ej">Vet ej</option>
+                </select>
               </div>
               <textarea
                 name="otherInput"
