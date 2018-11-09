@@ -23,9 +23,6 @@ class Buy extends Component {
               Kontakta oss så hjälper vi dig.
             </div>
           </div>
-          <button onClick={this.handleClick} className="buy-redirect">
-            Jag vill köpa direkt i webbshopen
-          </button>
         </div>
       </Fragment>
     );

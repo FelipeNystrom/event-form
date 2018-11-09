@@ -9,37 +9,32 @@ class App extends Component {
         <div className="main">
           <ul className="main-list-container">
             <div className="main-list-row-wrapper">
-              <div className="row">
-                <Link to="/order">
-                  <li>
-                    <div className="main-list-title">Beställ prover</div>
+              <Link to="/order">
+                <li>
+                  <div className="main-list-title">Beställ prover</div>
 
-                    <div className="main-list-content">
-                      Välj mellan våra olika provpaket
-                    </div>
-                  </li>
-                </Link>
-                <Link to="/buy">
-                  <li>
-                    <div className="main-list-title">Köp produkter</div>
-                    <div className="main-list-content">
-                      Köp här eller beställ till kliniken och få mässrabatt
-                    </div>
-                  </li>
-                </Link>
-              </div>
-              <div className="row">
-                <Link to="/newsletter">
-                  <li>
-                    <div className="main-list-title">
-                      Anmälan till nyhetsbrev
-                    </div>
-                    <div className="main-list-content">
-                      För dig som endast vill få vårt nyhetsbrev
-                    </div>
-                  </li>
-                </Link>
-                <Link to="/ambassador">
+                  <div className="main-list-content">
+                    Välj mellan våra olika provpaket
+                  </div>
+                </li>
+              </Link>
+              <Link to="/buy">
+                <li>
+                  <div className="main-list-title">Köp produkter</div>
+                  <div className="main-list-content">
+                    Köp här eller beställ till kliniken och få mässrabatt
+                  </div>
+                </li>
+              </Link>
+              <Link to="/newsletter">
+                <li>
+                  <div className="main-list-title">Anmälan till nyhetsbrev</div>
+                  <div className="main-list-content">
+                    För dig som endast vill få vårt nyhetsbrev
+                  </div>
+                </li>
+              </Link>
+              {/* <Link to="/ambassador">
                   <li>
                     <div className="main-list-title">
                       Bli officiell Plackers ambassadör
@@ -48,8 +43,7 @@ class App extends Component {
                       Samarbeta med oss och få förmåner
                     </div>
                   </li>
-                </Link>
-              </div>
+                </Link> */}
             </div>
           </ul>
         </div>

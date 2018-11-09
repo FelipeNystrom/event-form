@@ -18,7 +18,7 @@ module.exports = async (name, mail) => {
   await promisify(doc.useServiceAccountAuth)(credentials);
   const info = await promisify(doc.getInfo)();
   console.log(`Loaded doc: ` + info.title + ` by ` + info.author.email);
-  const sheet = info.worksheets[0];
+  const sheet = info.worksheets[1];
   console.log(
     `sheet 1: ` + sheet.title + ` ` + sheet.rowCount + `x` + sheet.colCount
   );
