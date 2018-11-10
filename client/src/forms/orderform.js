@@ -62,7 +62,7 @@ class Orderform extends Component {
         this.forceUpdate();
       }, 4500);
     }
-    console.log(!prevState.sameAddress && sameAddress);
+
     if (!prevState.sameAddress && sameAddress) {
       this.sameAddress();
     }
@@ -85,6 +85,8 @@ class Orderform extends Component {
       companyNameInput
     } = this.state;
 
+    const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
+
     if (next) {
       if (companyNameInput.length === 0) {
         return false;
@@ -92,17 +94,18 @@ class Orderform extends Component {
     }
 
     if (
-      (nameOfRecipient.length ||
-        addressInput1.length ||
-        zipCodeInput.length ||
-        regionInput.length ||
-        nameInput.length ||
-        phoneNumberInput.length ||
-        mailInput.length) === 0
+      nameOfRecipient.length !== 0 &&
+      addressInput1.length !== 0 &&
+      zipCodeInput.length !== 0 &&
+      regionInput.length !== 0 &&
+      nameInput.length !== 0 &&
+      phoneNumberInput.length !== 0 &&
+      mailInput.length !== 0 &&
+      emailPattern.test(mailInput)
     ) {
-      return false;
-    } else {
       return true;
+    } else {
+      return false;
     }
   };
 
@@ -119,8 +122,6 @@ class Orderform extends Component {
 
   handleChange = e => {
     e.preventDefault();
-    console.log(e.target.name);
-    console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -498,7 +499,7 @@ class Orderform extends Component {
                         onChange={this.handleChange}
                         value={mailInput}
                         placeholder="Email"
-                        required
+                        pattern="/[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/"
                       />
                     </div>
                   </div>

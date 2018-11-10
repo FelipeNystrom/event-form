@@ -152,6 +152,9 @@ class Platinum extends Component {
       regionCompanyInput,
       next
     } = this.state;
+
+    const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
+
     if (next) {
       if (
         (addressCompanyInput1.length ||
@@ -162,13 +165,14 @@ class Platinum extends Component {
       }
     }
     if (
-      (companyNameInput.length ||
-        contactMail.length ||
-        contactPhonenumberInput.length) === 0
+      companyNameInput.length !== 0 &&
+      contactMail.length !== 0 &&
+      contactPhonenumberInput.length !== 0 &&
+      emailPattern.test(contactMail)
     ) {
-      return false;
-    } else {
       return true;
+    } else {
+      return false;
     }
   };
   showModal = e => {
@@ -247,8 +251,8 @@ class Platinum extends Component {
                 name="contactMail"
                 onChange={this.handleChange}
                 value={contactMail}
-                placeholder="Mailaddress vi kan kontakta"
-                required
+                placeholder="Email"
+                pattern="/[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/"
               />
               <input
                 type="text"

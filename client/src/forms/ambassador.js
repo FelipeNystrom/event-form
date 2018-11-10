@@ -107,16 +107,19 @@ class Ambassador extends Component {
       contactMailInput
     } = this.state;
 
+    const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
+
     if (
-      (clinicNameInput.length ||
-        clinicAddressInput.length ||
-        contactNameInput.length ||
-        contactNumberInput.length ||
-        contactMailInput.length) === 0
+      clinicNameInput.length !== 0 &&
+      clinicAddressInput.length !== 0 &&
+      contactNameInput.length !== 0 &&
+      contactNumberInput.length !== 0 &&
+      contactMailInput.length !== 0 &&
+      emailPattern.test(contactMailInput)
     ) {
-      return false;
+      return true;
     }
-    return true;
+    return false;
   };
   showModal = e => {
     e.preventDefault();
