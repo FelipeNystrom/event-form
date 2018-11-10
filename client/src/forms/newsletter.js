@@ -82,11 +82,16 @@ class Newsletter extends Component {
   };
   allFields = () => {
     const { newsletterInput, subscribersNameInput } = this.state;
+    const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
 
-    if ((newsletterInput.length || subscribersNameInput.length) === 0) {
-      return false;
+    if (
+      newsletterInput.length !== 0 &&
+      subscribersNameInput.length !== 0 &&
+      emailPattern.test(newsletterInput)
+    ) {
+      return true;
     }
-    return true;
+    return false;
   };
   showModal = e => {
     e.preventDefault();
@@ -146,8 +151,8 @@ class Newsletter extends Component {
             name="newsletterInput"
             onChange={this.handleChange}
             value={newsletterInput}
-            placeholder="Din mailaddress"
-            required
+            placeholder="Email"
+            pattern="/[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/"
           />
           <input onClick={this.showModal} type="submit" value="Anmäl mig" />
         </form>
