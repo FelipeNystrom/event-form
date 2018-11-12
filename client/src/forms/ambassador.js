@@ -218,8 +218,8 @@ class Ambassador extends Component {
                 onChange={this.handleChange}
                 value={contactMailInput}
                 name="contactMailInput"
-                placeholder="Mailaddress"
-                required
+                placeholder="Email"
+                pattern="/[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/"
               />
             </div>
           </div>

@@ -17,6 +17,7 @@ class Orderform extends Component {
       { selected: false, id: 3, src: pkg3 },
       { selected: false, id: 4, src: pkg4 }
     ],
+    orderInfo: '',
     addressInput1: '',
     addressInput2: '',
     phoneNumberInput: '',
@@ -62,7 +63,6 @@ class Orderform extends Component {
         this.forceUpdate();
       }, 4500);
     }
-
     if (!prevState.sameAddress && sameAddress) {
       this.sameAddress();
     }
@@ -82,8 +82,11 @@ class Orderform extends Component {
       phoneNumberInput,
       mailInput,
       next,
-      companyNameInput
+      companyNameInput,
+      orderInfo
     } = this.state;
+
+    const { premium } = this.props;
 
     const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
 
@@ -92,7 +95,8 @@ class Orderform extends Component {
         return false;
       }
     }
-
+    if (premium && orderInfo.length !== 0) {
+    }
     if (
       nameOfRecipient.length !== 0 &&
       addressInput1.length !== 0 &&
@@ -179,7 +183,8 @@ class Orderform extends Component {
       sellingToday,
       otherInput,
       agent,
-      acceptsTerms
+      acceptsTerms,
+      orderInfo
     } = this.state;
     const { basic } = this.props;
     if (!basic && !this.allFields()) {
@@ -219,6 +224,7 @@ class Orderform extends Component {
         cntPkg['otherInput'] = otherInput;
         cntPkg['sellingToday'] = sellingToday;
         cntPkg['reference'] = reference;
+        cntPkg['orderInfo'] = orderInfo;
       }
 
       const opts = {
@@ -349,7 +355,8 @@ class Orderform extends Component {
       disabled,
       reference,
       show,
-      next
+      next,
+      orderInfo
     } = this.state;
     const { basic } = this.props;
 
@@ -416,9 +423,29 @@ class Orderform extends Component {
                       )}
                     </div>
                     <div className="contact-column">
+                      {!basic && (
+                        <div className="premium-order-info">
+                          <div className="contact-column-title">
+                            Beställning
+                          </div>
+                          <div className="premium-order-sub-title">
+                            Köp 100st för 300kr ex. moms
+                          </div>
+                          <textarea
+                            className="premium-order-text"
+                            name="orderInfo"
+                            onChange={this.handleChange}
+                            value={orderInfo}
+                            placeholder="Ange det antal du vill beställa"
+                            cols="10"
+                            rows="6"
+                          />
+                        </div>
+                      )}
                       <div className="contact-column-title">
                         Leveransuppgifter
                       </div>
+
                       <input
                         type="text"
                         name="nameOfRecipient"
@@ -571,7 +598,7 @@ class Orderform extends Component {
                       name="addressCompanyInput1"
                       onChange={this.handleChange}
                       value={addressCompanyInput1}
-                      placeholder="Företagsaddress 1 (frivilligt)"
+                      placeholder="Fakturadress 1 (frivilligt)"
                       disabled={disabled}
                     />
                     <input
@@ -579,7 +606,7 @@ class Orderform extends Component {
                       name="addressCompanyInput2"
                       onChange={this.handleChange}
                       value={addressCompanyInput2}
-                      placeholder="Företagsaddress 2 (frivilligt)"
+                      placeholder="Fakturadress 2 (frivilligt)"
                       disabled={disabled}
                     />
                     <input

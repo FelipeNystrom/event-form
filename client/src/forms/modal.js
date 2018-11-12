@@ -39,8 +39,8 @@ class Modal extends Component {
                 <h5>Oj! Har du missat ett fält?</h5>
               </div>
               <div className="modal-message">
-                Det verkar som att alla fält inte är ifyllda. Var vänlig fyll i
-                alla fält innan du går vidare.
+                Var vänlig fyll i alla fält innan du går vidare. Kontrollera
+                även att mailadressen är korrekt ifylld.
               </div>
               <button name="ok" onClick={this.handleClick}>
                 OK!

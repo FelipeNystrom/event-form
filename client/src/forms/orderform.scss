@@ -14,6 +14,22 @@
   flex-direction: row;
 }
 
+.premium-order-info {
+  font-size: 100%;
+  & .premium-order-text {
+    height: 5rem;
+    overflow-y: scroll;
+    font-size: 100%;
+  }
+}
+
+.premium-order-sub-title {
+  text-align: center;
+  font-style: oblique;
+  margin: 0.6rem;
+  font-size: 80%;
+}
+
 .contact-column-title {
   text-align: center;
   font-size: 150%;
@@ -22,7 +38,7 @@
 .contact-column-title-sub {
   text-align: center;
   font-size: 170%;
-  margin: 1.5rem 0;
+  margin: 0.6rem 0;
 }
 
 .contact-column {
@@ -82,13 +98,13 @@
 
 .basic-form input {
   flex: 1;
-  padding: 4% 1%;
+  padding: 2.5% 1%;
   margin: 0.6rem 0;
 }
 
 .basic-form-row input {
   flex: 1;
-  padding: 3% 1%;
+  padding: 2.5% 1%;
   margin: 0.6rem 1rem;
 }
 
@@ -105,7 +121,7 @@
   border: 0;
   color: hsl(0, 0%, 19%);
   margin: 0;
-  min-height: 3rem;
+  min-height: 4rem;
   background-color: hsl(120, 55%, 63%);
   transition: background-color 100ms ease-in-out;
 }
@@ -132,8 +148,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 1rem 0;
-  min-height: 4.5rem;
+  margin: 0.6rem 0;
+  min-height: 3rem;
   font-size: 150%;
   & .checkbox-section-wrapper {
     display: flex;

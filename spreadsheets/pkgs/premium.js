@@ -13,7 +13,6 @@ if (NODE_ENV !== 'production') {
 }
 
 module.exports = async (
-  samples,
   recipient,
   address1,
   address2,
@@ -31,7 +30,8 @@ module.exports = async (
   companyName,
   sellingToday,
   otherInput,
-  reference
+  reference,
+  orderInfo
 ) => {
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID_PREMIUM);
   await promisify(doc.useServiceAccountAuth)(credentials);
@@ -43,7 +43,7 @@ module.exports = async (
   );
 
   const insertNewRow = {
-    package_type: samples,
+    amount_to_order: orderInfo,
     recipient: recipient,
     adress1: address1,
     address2_optional: address2,

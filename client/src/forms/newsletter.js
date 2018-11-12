@@ -82,8 +82,8 @@ class Newsletter extends Component {
   };
   allFields = () => {
     const { newsletterInput, subscribersNameInput } = this.state;
-
     const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
+
     if (
       newsletterInput.length !== 0 &&
       subscribersNameInput.length !== 0 &&

@@ -97,7 +97,6 @@ router.post('/pkg/basic', async (req, res) => {
 
 router.post('/pkg/premium', async (req, res) => {
   const {
-    samples,
     recipient,
     address1,
     address2,
@@ -116,16 +115,12 @@ router.post('/pkg/premium', async (req, res) => {
     companyName,
     otherInput,
     sellingToday,
-    reference
+    reference,
+    orderInfo
   } = req.body.cntPkg;
-
-  const samplesIds = samples.map(sample => {
-    return sample.id;
-  });
 
   try {
     await addRowToPremiumPkg(
-      samplesIds,
       recipient,
       address1,
       address2,
@@ -143,7 +138,8 @@ router.post('/pkg/premium', async (req, res) => {
       companyName,
       sellingToday,
       otherInput,
-      reference
+      reference,
+      orderInfo
     );
     console.log('sucess inserting row to premium package sheet');
     if (wantNewsletter === true) {
