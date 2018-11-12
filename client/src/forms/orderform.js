@@ -137,29 +137,23 @@ class Orderform extends Component {
       regionInput
     } = this.state;
 
-    this.setState(
-      {
-        addressCompanyInput1: addressInput1,
-        addressCompanyInput2: addressInput2,
-        zipCodeCompanyInput: zipCodeInput,
-        regionCompanyInput: regionInput,
-        disabled: true
-      },
-      console.log
-    );
+    this.setState({
+      addressCompanyInput1: addressInput1,
+      addressCompanyInput2: addressInput2,
+      zipCodeCompanyInput: zipCodeInput,
+      regionCompanyInput: regionInput,
+      disabled: true
+    });
   };
 
   emptyAddress = () => {
-    this.setState(
-      {
-        addressCompanyInput1: '',
-        addressCompanyInput2: '',
-        zipCodeCompanyInput: '',
-        regionCompanyInput: '',
-        disabled: false
-      },
-      console.log
-    );
+    this.setState({
+      addressCompanyInput1: '',
+      addressCompanyInput2: '',
+      zipCodeCompanyInput: '',
+      regionCompanyInput: '',
+      disabled: false
+    });
   };
 
   handleSubmit = () => {
@@ -298,7 +292,6 @@ class Orderform extends Component {
 
     const copySamples = samples.slice();
     copySamples.forEach(sample => {
-      console.log(sample.id === parseInt(e.target.name, 10));
       if (sample.id === parseInt(e.target.name, 10)) {
         const oldValue = sample.selected;
         sample.selected = !oldValue;
