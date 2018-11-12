@@ -6,10 +6,17 @@
   width: 11.5rem;
   height: 11.5rem;
   margin: 0.5rem;
-  border: 0.4rem solid transparent;
+  border: 0.2rem solid hsla(0, 0%, 95%, 0.7);
+  border-radius: 0.2rem;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   & img {
     width: 100%;
   }
+  transition: border 150ms ease-in-out;
 }
 
 .selected {
