@@ -243,6 +243,7 @@ class Orderform extends Component {
                 { selected: false, id: 3 },
                 { selected: false, id: 4 }
               ],
+              orderInfo: '',
               addressInput1: '',
               addressInput2: '',
               phoneNumberInput: '',
