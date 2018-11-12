@@ -9,6 +9,10 @@
   justify-content: space-around;
   box-shadow: 0.2rem 0.2rem 0.5rem 0px hsla(0, 0%, 70%, 1);
   margin-bottom: 2rem;
+
+  & textarea {
+    height: 2rem;
+  }
 }
 
 .package-description {
@@ -27,21 +31,20 @@
 }
 
 .platinum-form textarea {
-  height: 10rem;
-  font-size: 150%;
+  height: 7rem;
+  font-size: 110%;
   padding: 2%;
   border: none;
 }
 
 .platinum-form input[type='submit'],
 .platinum-form input[type='button'] {
-  padding: 5%;
   text-align: center;
   background-color: hsl(120, 55%, 63%);
   transition: background-color 100ms ease-in-out;
   font-size: 200%;
-  max-height: 3rem;
-  min-height: 2.5rem;
+  padding-top: 2rem;
+  height: 3rem;
 }
 
 .platinum-form input[type='button']:active,
@@ -49,10 +52,25 @@
   background-color: hsl(120, 45%, 55%);
 }
 
-.selling-today {
+.platinum-selling-today {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
   font-size: 140%;
-  flex: 1;
   margin: 1rem auto;
+  height: 4rem;
+  & label {
+    font-size: 1rem;
+  }
+  & select {
+    font-size: 80%;
+    margin-left: 1rem;
+    padding: 1%;
+    border-radius: 0.3rem;
+    border-color: hsla(0, 0%, 85%, 0.7);
+    background-color: transparent;
+  }
 }
 
 .selling-today-title {

@@ -11,6 +11,7 @@ class Platinum extends Component {
     addressCompanyInput2: '',
     zipCodeCompanyInput: '',
     regionCompanyInput: '',
+    recipientInput: '',
     sellingToday: '',
     otherInput: '',
     errorMsg: '',
@@ -53,6 +54,7 @@ class Platinum extends Component {
       addressCompanyInput2,
       zipCodeCompanyInput,
       regionCompanyInput,
+      recipientInput,
       sellingToday,
       otherInput,
       acceptsTerms
@@ -71,6 +73,7 @@ class Platinum extends Component {
         addressCompanyInput2: addressCompanyInput2,
         zipCodeCompanyInput: zipCodeCompanyInput,
         regionCompanyInput: regionCompanyInput,
+        recipientInput: recipientInput,
         sellingToday: sellingToday.string,
         otherInput: otherInput
       };
@@ -146,24 +149,11 @@ class Platinum extends Component {
     const {
       companyNameInput,
       contactMail,
-      contactPhonenumberInput,
-      addressCompanyInput1,
-      zipCodeCompanyInput,
-      regionCompanyInput,
-      next
+      contactPhonenumberInput
     } = this.state;
 
     const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
 
-    if (next) {
-      if (
-        addressCompanyInput1.length !== 0 &&
-        zipCodeCompanyInput.length !== 0 &&
-        regionCompanyInput.length !== 0
-      ) {
-        return true;
-      }
-    }
     if (
       companyNameInput.length !== 0 &&
       contactMail.length !== 0 &&
@@ -211,6 +201,7 @@ class Platinum extends Component {
       addressCompanyInput2,
       zipCodeCompanyInput,
       regionCompanyInput,
+      recipientInput,
       sellingToday,
       otherInput,
       next,
@@ -273,7 +264,7 @@ class Platinum extends Component {
                   name="addressCompanyInput1"
                   onChange={this.handleChange}
                   value={addressCompanyInput1}
-                  placeholder="Fakturadress 1"
+                  placeholder="Fakturadress 1 (frivilligt)"
                   required
                 />
                 <input
@@ -281,7 +272,7 @@ class Platinum extends Component {
                   name="addressCompanyInput2"
                   onChange={this.handleChange}
                   value={addressCompanyInput2}
-                  placeholder="Fakturadress 2"
+                  placeholder="Fakturadress 2 (frivilligt)"
                 />
               </div>
               <div className="basic-form-row">
@@ -290,17 +281,24 @@ class Platinum extends Component {
                   name="zipCodeCompanyInput"
                   onChange={this.handleChange}
                   value={zipCodeCompanyInput}
-                  placeholder="Postnummer till ditt företag"
+                  placeholder="Postnummer (frivilligt)"
                 />
                 <input
                   type="text"
                   name="regionCompanyInput"
                   onChange={this.handleChange}
                   value={regionCompanyInput}
-                  placeholder="Postort"
+                  placeholder="Postort (frivilligt)"
+                />
+                <input
+                  type="text"
+                  name="recipientInput"
+                  onChange={this.handleChange}
+                  value={recipientInput}
+                  placeholder="Fakturamottagare (frivilligt)"
                 />
               </div>
-              <div className="selling-today">
+              <div className="platinum-selling-today">
                 <label>Vi säljer Plackers idag</label>
                 <select
                   name="sellingToday"
