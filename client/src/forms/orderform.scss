@@ -17,9 +17,10 @@
 .premium-order-info {
   font-size: 100%;
   & .premium-order-text {
-    height: 5rem;
     overflow-y: scroll;
-    font-size: 100%;
+    font-size: 120%;
+    width: 100%;
+    padding: 2% 0;
   }
 }
 
@@ -106,7 +107,7 @@
 
 .basic-form textarea {
   width: 100%;
-  font-size: 200%;
+  font-size: 140%;
   margin: 1rem 0;
   padding: 3%;
   border: 0;
@@ -223,11 +224,13 @@
   & .selling-today {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex: 2;
     margin: 1rem 0;
     padding: 1% 0;
     & label {
-      font-size: 70%;
+      font-size: 100%;
       flex: 4;
     }
 
