@@ -187,7 +187,7 @@ class Ambassador extends Component {
                 onChange={this.handleChange}
                 name="clinicAddressInput"
                 value={clinicAddressInput}
-                placeholder="Besöksaddress"
+                placeholder="Besöksadress"
                 required
               />
             </div>
