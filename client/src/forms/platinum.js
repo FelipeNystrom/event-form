@@ -157,11 +157,11 @@ class Platinum extends Component {
 
     if (next) {
       if (
-        (addressCompanyInput1.length ||
-          zipCodeCompanyInput.length ||
-          regionCompanyInput.length) === 0
+        (addressCompanyInput1.length !== 0 &&
+          zipCodeCompanyInput.length !== 0 &&
+          regionCompanyInput.length) !== 0 &&
       ) {
-        return false;
+        return true;
       }
     }
     if (
