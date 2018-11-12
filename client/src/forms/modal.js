@@ -54,81 +54,90 @@ class Modal extends Component {
               <div className="modal-text">
                 <ul>
                   <li>
-                    1.Integritetspolicy & Cookies Plackers värnar om din
-                    personliga integritet. Denna integritetspolicy gäller för
-                    samtliga webbsidor på plackers.se. Plackers Scandinavia AB
-                    är ansvarig för behandlingen av personuppgifter som samlas
-                    in på webbplatsen. Du kan alltid kontakta oss vid frågor
-                    kring integritets- och dataskydd genom att skicka ett
-                    e-postmeddelande till oss på info@plackers.se
+                    1. Tietosuojakäytäntömme ja evästeet Plackers suojelee
+                    yksityisyyttäsi EU:n General Data Protection Regulation
+                    -tietosuoja-asetusta noudattaen. Tietosuojakäytäntömme
+                    koskevat kaikkia kotisivuumme Plackers.fi liitettyjä
+                    verkkosivuja ja lomakkeita. Plackers Scandinavia AB on
+                    vastuussa verkkosivulla yhtiölle luovutettujen
+                    henkilötietojen turvallisesta käsittelystä ja
+                    taltioimisesta. Voit ottaa yhteyttä sähköpostilla
+                    info@plackers.se, jos sinulla tulee kysyttävää
+                    tietosuojakäyttännöstämme.
                   </li>
                   <li>
-                    1.1 Personuppgifter som behandlas Exempel på information som
-                    inhämtas: •Företagsnamn •Kontaktperson
-                    •Företagsadress/Postadress/fakturaadress •Telefonnummer och
-                    e-postadress •Information om användningen av webbplatsen, i
-                    form av bland annat vilka undersidor som besökt,
-                    browserinställningar och IP-adress. Plackers samlar inte in
-                    personupplysningar som personnummer eller upplysningar om
-                    betalningsmedel.
+                    1.1 Käsittelemämme henkilötiedot Esimerkkejä keräämistämme
+                    tiedoista: •Yrityksen nimi •Tilauksen kontaktihenkilön nimi
+                    •Yrityksen osoite/laskutusosoite •Tilaajan puhelinnumero ja
+                    sähköpostiosoite •Evästeitä verkkosivun käytöstä, kuten
+                    esimerkiksi mitä hakusanoja tai alaotsikoita käytät,
+                    hakukoneen asetuksia sekä käyttämäsi IP-osoite. Plackers ei
+                    kerää henkilötietoja, kuten henkilötunnusta,
+                    maksutapatietoja tai tietoja maksuvälineestä.
                   </li>
                   <li>
-                    1.2 Hur hämtar vi information? Plackers samlar in
-                    upplysningar genom formulär på våra webbsidor. Det är
-                    frivilligt att uppge denna information. Om du väljer att
-                    inte uppge personuppgifter, kan vi vara förhindrade från att
-                    ge dig tillgång till vissa produkter eller tjänster. Exempel
-                    på formulär: •Kontaktformulär •När man önskar att prova
-                    eller köpa en produkt eller tjänst •Vid anmälan att motta
-                    våra nyhetsbrev per e-post
+                    1.2 Miten keräämme tietoa? Plackers kerää tietoja
+                    verkkosivuihin upotettujen toiminnallisten lomakkeiden
+                    avulla. Yhteystietojen luovuttaminen on vapaaehtoista. Jos
+                    valintasi on olla antamatta yhteystietojasi, voimme olla
+                    estyneitä lähettämään teille tiettyjä tuotteitamme tai
+                    tarjoamaan kaikkia palveluitamme. Esimerkkejä lomakkeista:
+                    •Yhteystietolomake •Näytteiden tai tuotteiden tilauslomake
+                    •Sähköisen uutiskirjeen tilauslomake
                   </li>
                   <li>
-                    1.3 Ändamålet med information som inhämtas •För att kunna ge
-                    tillgång till våra produkter och tjänster •För att kunna
-                    sända relevant information •För att kunna sända
-                    e-postutskick med produktnyheter, kampanjer och andra
-                    erbjudanden. •För att kunna ta kontakt med dig för att svara
-                    på frågor och/eller erbjuda våra produkter och tjänster Vi
-                    inhämtar ingen information från tredje part.
+                    1.3 Tiedon keräämisen päämäärät: •Tiedot mahdollistavat
+                    tuotteiden ja palveluiden tarkastelemisen ja tilaamisen
+                    verkossa. •Voimme lähettää päivitettyjä tietoja
+                    tuotteistamme. •Voimme jakaa sähköistä uutiskirjettämme ja
+                    tietoa uusista tuotteistamme, kampanjoista sekä tarjouksista
+                    •Voimme tarvittaessa ottaa yhteyttä teihin vastataksemme
+                    kysymyksiinne ja/tai tarjota Plackersin tuotteita ja
+                    palveluita. Plackers Scandinavia AB ei luovuta tietoja
+                    kolmannelle osapuolelle eikä vastaanota tietoja kolmannelta
+                    osapuolelta.
                   </li>
                   <li>
-                    1.5 Rättslig grund för insamling av personuppgifter
-                    •Samtycke •Avtal •Intresseavvägning
+                    1.4 Oikeudellinen perusta henkilötietojen keräämiselle
+                    •Tietoja luovuttaneen henkilön suostumus. •Sopimukset ja
+                    yhteiset edut. •Intressivertailu.
                   </li>
                   <li>
-                    1.6 Hur lagras informationen? Information som inhämtats
-                    genom formulär på plackers.se lagras på webbservern samt i
-                    system för orderhantering
+                    1.5 Miten tietoja säilytetään? Verkkosivun lomakkeiden
+                    avulla kerättyjä tietoja säilytetään verkkopalvelimella
+                    yhdessä tilaustenkäsittelyjärjestelmän kanssa.
                   </li>
                   <li>
-                    1.7 Hur tas information bort? Personuppgifter tas bort efter
-                    kundens kontakt med vår kundtjänst.
+                    1.6 Miten poistan tietoni järjestelmästä? Henkilötiedot saa
+                    poistettua järjestelmästämme ottamalla yhteyttä
+                    asiakaspalveluumme.
                   </li>
                   <li>
-                    1.8 Utlämning av information till tredje part?
-                    Personuppgifter delas inte ut till tredjepart, men Plackers
-                    kan använda underleverantörer för att leverera hela eller
-                    delar av webbplatsen samt för ärendebehandling. Sådana
-                    underleverantörer är personuppgiftsbiträden och kan behandla
-                    personuppgifter å Plackers vägnar.
+                    1.7 Luovutetaanko tietojani kolmannelle osapuolelle?
+                    Plackers Scandinavia AB ei luovuta henkilötietoja
+                    kolmannelle osapuolelle, mutta Plackers voi käyttää
+                    alihankkijoiden palveluita verkkosivujen päivittämiseen,
+                    korjaamiseen ja tehtävienhallintaan. Alihankkijat ovat
+                    tietosuojavaltuutettuja asiantuntijoita ja he voivat
+                    käsitellä henkilötietoja Plackersin pyynnöstä.
                   </li>
                   <li>
-                    1.9 Rättigheter Som användare av Plackers Scandinavia ABs
-                    webbplats, plackers.se, har du rätt till att kräva insyn i
-                    behandlingen av personuppgifter. Du kan också kräva
-                    korrigeringar, begränsningar eller borttagande av
-                    personuppgifter i enlighet med personuppgiftslagen. När
-                    behandlingen av personuppgifter är baserad på samtycke, kan
-                    du närsomhelst ta samtycket tillbaka. Om du tror att
-                    Plackers inte har uppfyllt dina rättigheter enligt
-                    personuppgiftslagen, har du rätt att överklaga till den
-                    aktuella tillsynsmyndigheten. Detta görs genom att skicka
-                    ett klagomål till Datainspektionen. Kontaktuppgifter finns
-                    på: http://www.datainspektionen.se
+                    1.8 Käyttäjäoikeudet Plackers Scandinavia AB verkkosivun,
+                    Plackers.fi käyttäjänä sinulla on oikeus vaatia selvitystä
+                    henkilötietojen käsittelystä. Käyttäjänä sinulla on myös
+                    oikeus vaatia tietojen oikaisua, rajausta tai poistamista
+                    henkilötietolakien mukaisesti. Tapauksissa joissa
+                    henkilötietojen käsittely perustuu yhteiseen sopimukseen,
+                    voit milloin tahansa vaatia sopimuksen purkamista. Jos koet,
+                    että Plackers ei noudata käyttäjäoikeuksia tai
+                    henkilötietolakeja, on sinulla oikeus ilmoittaa siitä
+                    valvontaviranomaiselle. Yhteystiedot ilmoitusta varten
+                    löytyvät osoitteesta: www.datainspektionen.se.
                   </li>
                   <div>
-                    Kontakt Telefon 08-611 30 00 info@plackers.se Plackers
-                    Scandinavia AB, Stockholmsvägen 70, 181 42 Stockholm
+                    Kontakt Puhelinnumero +358 8 611 30 00 info@plackers.se
+                    Plackers Scandinavia AB, Stockholmsvägen 70, 181 42
+                    Stockholm
                   </div>
                 </ul>
               </div>

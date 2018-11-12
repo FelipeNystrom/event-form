@@ -459,7 +459,7 @@ class Orderform extends Component {
                         name="addressInput1"
                         onChange={this.handleChange}
                         value={addressInput1}
-                        placeholder="Address 1"
+                        placeholder="Adress 1"
                         required
                       />
                       <input
@@ -467,7 +467,7 @@ class Orderform extends Component {
                         name="addressInput2"
                         onChange={this.handleChange}
                         value={addressInput2}
-                        placeholder="Address 2 (frivilligt)"
+                        placeholder="Adress 2 (frivilligt)"
                       />
                       <input
                         type="text"

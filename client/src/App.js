@@ -34,16 +34,6 @@ class App extends Component {
                   </div>
                 </li>
               </Link>
-              {/* <Link to="/ambassador">
-                  <li>
-                    <div className="main-list-title">
-                      Bli officiell Plackers ambassadör
-                    </div>
-                    <div className="main-list-content">
-                      Samarbeta med oss och få förmåner
-                    </div>
-                  </li>
-                </Link> */}
             </div>
           </ul>
         </div>
