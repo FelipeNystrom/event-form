@@ -81,8 +81,6 @@ class Orderform extends Component {
       nameInput,
       phoneNumberInput,
       mailInput,
-      next,
-      companyNameInput,
       orderInfo
     } = this.state;
 
@@ -90,11 +88,6 @@ class Orderform extends Component {
 
     const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
 
-    if (next) {
-      if (companyNameInput.length === 0) {
-        return false;
-      }
-    }
     if (premium && orderInfo.length !== 0) {
     }
     if (
@@ -138,7 +131,8 @@ class Orderform extends Component {
       addressInput1,
       addressInput2,
       zipCodeInput,
-      regionInput
+      regionInput,
+      nameOfRecipient
     } = this.state;
 
     this.setState({
@@ -146,6 +140,7 @@ class Orderform extends Component {
       addressCompanyInput2: addressInput2,
       zipCodeCompanyInput: zipCodeInput,
       regionCompanyInput: regionInput,
+      companyNameInput: nameOfRecipient,
       disabled: true
     });
   };
@@ -156,6 +151,7 @@ class Orderform extends Component {
       addressCompanyInput2: '',
       zipCodeCompanyInput: '',
       regionCompanyInput: '',
+      companyNameInput: '',
       disabled: false
     });
   };
@@ -597,14 +593,15 @@ class Orderform extends Component {
                       name="companyNameInput"
                       onChange={this.handleChange}
                       value={companyNameInput}
-                      placeholder="Företagets namn"
+                      placeholder="Företagets namn (frivilligt)"
+                      disabled={disabled}
                     />
                     <input
                       type="text"
                       name="addressCompanyInput1"
                       onChange={this.handleChange}
                       value={addressCompanyInput1}
-                      placeholder="Fakturadress 1 (frivilligt)"
+                      placeholder="Fakturaadress 1 (frivilligt)"
                       disabled={disabled}
                     />
                     <input
@@ -612,7 +609,7 @@ class Orderform extends Component {
                       name="addressCompanyInput2"
                       onChange={this.handleChange}
                       value={addressCompanyInput2}
-                      placeholder="Fakturadress 2 (frivilligt)"
+                      placeholder="Fakturaadress 2 (frivilligt)"
                       disabled={disabled}
                     />
                   </div>
