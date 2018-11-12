@@ -97,6 +97,7 @@ class Platinum extends Component {
               addressCompanyInput2: '',
               zipCodeCompanyInput: '',
               regionCompanyInput: '',
+              otherInput: '',
               errorMsg: '',
               successMsg:
                 'Tack för din anmälan! Vi kommer höra av oss så fort som möjligt!',
