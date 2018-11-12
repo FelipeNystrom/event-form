@@ -170,9 +170,9 @@ class Platinum extends Component {
       contactPhonenumberInput.length !== 0 &&
       emailPattern.test(contactMail)
     ) {
-      return false;
-    } else {
       return true;
+    } else {
+      return false;
     }
   };
   showModal = e => {
