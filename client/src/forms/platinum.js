@@ -257,8 +257,15 @@ class Platinum extends Component {
             </Fragment>
           ) : (
             <Fragment>
-              <div className="next-title">Faktura information</div>
+              <div className="next-title">Fakturainformation</div>
               <div className="basic-form-row">
+                <input
+                  type="text"
+                  name="recipientInput"
+                  onChange={this.handleChange}
+                  value={recipientInput}
+                  placeholder="Fakturamottagare (frivilligt)"
+                />
                 <input
                   type="text"
                   name="addressCompanyInput1"
@@ -290,13 +297,6 @@ class Platinum extends Component {
                   value={regionCompanyInput}
                   placeholder="Postort (frivilligt)"
                 />
-                <input
-                  type="text"
-                  name="recipientInput"
-                  onChange={this.handleChange}
-                  value={recipientInput}
-                  placeholder="Fakturamottagare (frivilligt)"
-                />
               </div>
               <div className="platinum-selling-today">
                 <label>Vi säljer Plackers idag</label>
@@ -305,7 +305,7 @@ class Platinum extends Component {
                   value={sellingToday}
                   onChange={this.handleChange}
                 >
-                  <option value="Ja">...</option>
+                  <option value="...">...</option>
 
                   <option value="Ja">Ja</option>
                   <option value="Nej">Nej</option>

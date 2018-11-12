@@ -81,8 +81,6 @@ class Orderform extends Component {
       nameInput,
       phoneNumberInput,
       mailInput,
-      next,
-      companyNameInput,
       orderInfo
     } = this.state;
 
@@ -90,11 +88,6 @@ class Orderform extends Component {
 
     const emailPattern = /[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/;
 
-    if (next) {
-      if (companyNameInput.length === 0) {
-        return false;
-      }
-    }
     if (premium && orderInfo.length !== 0) {
     }
     if (
@@ -138,7 +131,8 @@ class Orderform extends Component {
       addressInput1,
       addressInput2,
       zipCodeInput,
-      regionInput
+      regionInput,
+      nameOfRecipient
     } = this.state;
 
     this.setState({
@@ -146,6 +140,7 @@ class Orderform extends Component {
       addressCompanyInput2: addressInput2,
       zipCodeCompanyInput: zipCodeInput,
       regionCompanyInput: regionInput,
+      companyNameInput: nameOfRecipient,
       disabled: true
     });
   };
@@ -156,6 +151,7 @@ class Orderform extends Component {
       addressCompanyInput2: '',
       zipCodeCompanyInput: '',
       regionCompanyInput: '',
+      companyNameInput: '',
       disabled: false
     });
   };
@@ -431,14 +427,13 @@ class Orderform extends Component {
                           <div className="premium-order-sub-title">
                             Köp 100st för 300kr ex. moms
                           </div>
-                          <textarea
+                          <input
+                            type="text"
                             className="premium-order-text"
                             name="orderInfo"
                             onChange={this.handleChange}
                             value={orderInfo}
                             placeholder="Ange det antal du vill beställa"
-                            cols="10"
-                            rows="6"
                           />
                         </div>
                       )}
@@ -565,7 +560,7 @@ class Orderform extends Component {
                 </Fragment>
               ) : (
                 <Fragment>
-                  <div className="next-title">Faktura information</div>
+                  <div className="next-title">Fakturainformation</div>
                   <div className="flex-row">
                     <div className="same-address">
                       <label>Samma adress som leveransadress</label>
@@ -581,7 +576,7 @@ class Orderform extends Component {
                         value={sellingToday}
                         onChange={this.handleChange}
                       >
-                        <option value="Ja">...</option>
+                        <option value="...">...</option>
 
                         <option value="Ja">Ja</option>
                         <option value="Nej">Nej</option>
@@ -595,10 +590,18 @@ class Orderform extends Component {
                   <div className="basic-form-row">
                     <input
                       type="text"
+                      name="companyNameInput"
+                      onChange={this.handleChange}
+                      value={companyNameInput}
+                      placeholder="Företagets namn (frivilligt)"
+                      disabled={disabled}
+                    />
+                    <input
+                      type="text"
                       name="addressCompanyInput1"
                       onChange={this.handleChange}
                       value={addressCompanyInput1}
-                      placeholder="Fakturadress 1 (frivilligt)"
+                      placeholder="Fakturaadress 1 (frivilligt)"
                       disabled={disabled}
                     />
                     <input
@@ -606,9 +609,11 @@ class Orderform extends Component {
                       name="addressCompanyInput2"
                       onChange={this.handleChange}
                       value={addressCompanyInput2}
-                      placeholder="Fakturadress 2 (frivilligt)"
+                      placeholder="Fakturaadress 2 (frivilligt)"
                       disabled={disabled}
                     />
+                  </div>
+                  <div className="basic-form-row">
                     <input
                       type="text"
                       name="zipCodeCompanyInput"
@@ -617,8 +622,6 @@ class Orderform extends Component {
                       placeholder="Postnummer (frivilligt)"
                       disabled={disabled}
                     />
-                  </div>
-                  <div className="basic-form-row">
                     <input
                       type="text"
                       name="regionCompanyInput"
@@ -633,13 +636,6 @@ class Orderform extends Component {
                       onChange={this.handleChange}
                       value={reference}
                       placeholder="Referens (frivilligt)"
-                    />
-                    <input
-                      type="text"
-                      name="companyNameInput"
-                      onChange={this.handleChange}
-                      value={companyNameInput}
-                      placeholder="Företagets namn"
                     />
                   </div>
 
