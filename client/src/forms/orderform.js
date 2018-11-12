@@ -411,7 +411,7 @@ class Orderform extends Component {
                     <div className="sample-display">
                       {basic ? (
                         <Fragment>
-                          <div className="sample-row">{displayRow1}</div>
+                          <div className="sample-row top">{displayRow1}</div>
                           <div className="sample-row">{displayRow2}</div>
                         </Fragment>
                       ) : (
