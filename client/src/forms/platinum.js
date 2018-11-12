@@ -97,6 +97,7 @@ class Platinum extends Component {
               addressCompanyInput2: '',
               zipCodeCompanyInput: '',
               regionCompanyInput: '',
+              otherInput: '',
               errorMsg: '',
               successMsg:
                 'Tack för din anmälan! Vi kommer höra av oss så fort som möjligt!',
@@ -271,7 +272,7 @@ class Platinum extends Component {
                   name="addressCompanyInput1"
                   onChange={this.handleChange}
                   value={addressCompanyInput1}
-                  placeholder="Fakturadress 1 (frivilligt)"
+                  placeholder="Fakturaadress 1 (frivilligt)"
                   required
                 />
                 <input
@@ -279,7 +280,7 @@ class Platinum extends Component {
                   name="addressCompanyInput2"
                   onChange={this.handleChange}
                   value={addressCompanyInput2}
-                  placeholder="Fakturadress 2 (frivilligt)"
+                  placeholder="Fakturaadress 2 (frivilligt)"
                 />
               </div>
               <div className="basic-form-row">
