@@ -215,7 +215,7 @@ class Platinum extends Component {
       <Fragment>
         {successMsg && <div className="success">{successMsg}</div>}
         {errorMsg && <div className="error">{errorMsg}</div>}
-        <div className="section-title">Platinumpaket</div>
+        <div className="section-title">Platinum-näytepakkaus</div>
         <form className="platinum-form" onSubmit={this.handleSubmit}>
           <Modal
             hideModal={this.hideModal}
@@ -225,17 +225,16 @@ class Platinum extends Component {
           {!next ? (
             <Fragment>
               <div className="package-description">
-                I vårt Platinumpaket skräddarsyr vi ett paket som passar era
-                behov. Efter anmälan kommer vi kontakta er så snabbt som möjligt
-                för att ta reda på hur vi kan ta fram lösningar speciella för
-                era behov.
+                Räätälöimme näytepakkauksen tarpeidenne mukaan. Tilauksen
+                jälkeen otamme yhteyttä mahdollisimman pian, voidaksemme tarjota
+                sopivan näytepaketin toiveidenne mukaisesti.
               </div>
               <input
                 type="text"
                 name="companyNameInput"
                 onChange={this.handleChange}
                 value={companyNameInput}
-                placeholder="Namn på företag"
+                placeholder="Yrityksen nimi"
                 required
               />
               <input
@@ -251,7 +250,7 @@ class Platinum extends Component {
                 name="contactPhonenumberInput"
                 onChange={this.handleChange}
                 value={contactPhonenumberInput}
-                placeholder="Telefonnummer vi kan ringa för kontakt"
+                placeholder="Puhelinnumero"
                 required
               />
               <input type="button" onClick={this.handleNext} value="Nästa" />

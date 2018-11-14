@@ -11,51 +11,48 @@ class Order extends Component {
           <Link className="package" to={`${match.url}/basic`}>
             <div className="package-content">
               <div className="package-title">Basic</div>
-              <div className="package-title-secondary">(Gratis på mässan)</div>
+              <div className="package-title-secondary">
+                (Ilmaiseksi messuilta)
+              </div>
               <ul className="package-specifics">
                 <li>
-                  Vårt baspaket består av olika enstycksprover för att
-                  rekommendera Plackers till patienterna.
+                  Basic-pakkaus koostuu yksittäispakatuista näytteistä,
+                  suositeltavaksi potilaille
                 </li>
               </ul>
             </div>
             <form className="package-select">
-              <input type="button" name="basic" value="Välj" />
+              <input type="button" name="basic" value="Valitse" />
             </form>
           </Link>
           <Link className="package" to={`${match.url}/premium`}>
             <div className="package-content">
               <div className="package-title">Premium</div>
-              <div className="package-title-secondary">
-                (Subventionerat pris)
-              </div>
+              <div className="package-title-secondary">(Alennettu hinta)</div>
               <ul className="package-specifics">
                 <li>
-                  Vårt startpaket som kombinerar Plackers-prover med
-                  rekommendationer kring förebyggande munhälsa. Samma paket som
-                  vi visar upp i mässmontern.
+                  Aloituspakkaus, jossa on lajitelma Plackers- näytteitä ja
+                  onjeita ennaltaehkäisevään suunhoitoon. Pakkaus on nätillä
+                  messuosastollamme.
                 </li>
               </ul>
             </div>
             <form className="package-select">
-              <input type="button" name="premium" value="Välj" />
+              <input type="button" name="premium" value="Valitse" />
             </form>
           </Link>
           <Link className="package" to={`${match.url}/platinum`}>
             <div className="package-content">
               <div className="package-title">Platinum</div>
-              <div className="package-title-secondary">
-                (Subventionerat pris)
-              </div>
+              <div className="package-title-secondary">(Alennettu hint)</div>
               <ul className="package-specifics">
                 <li>
-                  Vårt erbjudande där vi skräddarsyr och anpassar ett
-                  provkoncept enligt era önskemål.
+                  Räätälöimme näytepaketin toivedenne ja tarpedinne mukaisesti.
                 </li>
               </ul>
             </div>
             <form className="package-select">
-              <input type="button" name="platinum" value="Välj" />
+              <input type="button" name="platinum" value="Valitse" />
             </form>
           </Link>
         </div>

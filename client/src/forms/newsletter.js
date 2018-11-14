@@ -135,7 +135,7 @@ class Newsletter extends Component {
         {successMsg && <div className="success">{successMsg}</div>}
         {errorMsg && <div className="error">{errorMsg}</div>}
         <div className="section-title">
-          Anmäl dig för att ta del av vårt nyhetsbrev
+          Ilmoittaudu sähköisen Plackers-uutiskirjeen saajaksi
         </div>
         <form className="newsletter-form">
           <input
@@ -143,7 +143,7 @@ class Newsletter extends Component {
             name="subscribersNameInput"
             onChange={this.handleChange}
             value={subscribersNameInput}
-            placeholder="Ditt fulla namn"
+            placeholder="Etu- ja sukunimi"
             required
           />
           <input
@@ -151,10 +151,10 @@ class Newsletter extends Component {
             name="newsletterInput"
             onChange={this.handleChange}
             value={newsletterInput}
-            placeholder="Email"
+            placeholder="Sähköpostiosoite"
             pattern="/[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/"
           />
-          <input onClick={this.showModal} type="submit" value="Anmäl mig" />
+          <input onClick={this.showModal} type="submit" value="Ilmoittaudu" />
         </form>
       </Fragment>
     );

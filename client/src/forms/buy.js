@@ -13,9 +13,9 @@ class Buy extends Component {
           <div className="buy-title">Köp Plackers produkter</div>
           <div className="buy-message">
             <div>
-              Vi erbjuder 20% mässrabatt vid beställning av Plackers produkter
-              till kliniken. Ta kontakt med vår mässpersonal för att göra en
-              beställning.
+              Tarjoamme edullisia messutarjouksia, kun tilaatte
+              Plackers-tuotteita messuosastoltamme. Ota yhteyttä
+              henkilökuntaamme messuosastollamme tilauksen tekemiseksi.
             </div>
             <div>
               Vi har även tagit fram ett specialerbjudande med ännu högre rabatt

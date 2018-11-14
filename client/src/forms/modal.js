@@ -36,11 +36,14 @@ class Modal extends Component {
           {missingFields ? (
             <Fragment>
               <div className="modal-title">
-                <h5>Oj! Har du missat ett fält?</h5>
+                <h5>
+                  Oi! Oletko muistanut täyttää kaikki vaaditut viestikentät?
+                </h5>
               </div>
               <div className="modal-message">
-                Var vänlig fyll i alla fält innan du går vidare. Kontrollera
-                även att mailadressen är korrekt ifylld.
+                Täytä ystävällisesti kaikki vaaditut viestikentät, ennen kuin
+                jatkat eteenpäin. Tarkistathan vielä, että antamanne
+                sähköpostiosoite on kirjoitettu oikein.
               </div>
               <button name="ok" onClick={this.handleClick}>
                 OK!

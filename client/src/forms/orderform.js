@@ -391,7 +391,7 @@ class Orderform extends Component {
 
         <Fragment>
           {basic ? (
-            <div className="section-title">Baspaketet</div>
+            <div className="section-title">Basic-näytepakkaus</div>
           ) : (
             <div className="section-title">Premiumpaket</div>
           )}
@@ -422,9 +422,7 @@ class Orderform extends Component {
                     <div className="contact-column">
                       {!basic && (
                         <div className="premium-order-info">
-                          <div className="contact-column-title">
-                            Beställning
-                          </div>
+                          <div className="contact-column-title">Tilaus</div>
                           <div className="premium-order-sub-title">
                             Köp 100st för 300kr ex. moms
                           </div>
@@ -434,20 +432,18 @@ class Orderform extends Component {
                             name="orderInfo"
                             onChange={this.handleChange}
                             value={orderInfo}
-                            placeholder="Ange det antal du vill beställa"
+                            placeholder="Anna tilausmäärä (kpl.)"
                           />
                         </div>
                       )}
-                      <div className="contact-column-title">
-                        Leveransuppgifter
-                      </div>
+                      <div className="contact-column-title">Toimitustiedot</div>
 
                       <input
                         type="text"
                         name="nameOfRecipient"
                         onChange={this.handleChange}
                         value={nameOfRecipient}
-                        placeholder="Mottagare/Klinik"
+                        placeholder="Vastaanottaja/Klinikka"
                         required
                       />
                       <input
@@ -455,7 +451,7 @@ class Orderform extends Component {
                         name="addressInput1"
                         onChange={this.handleChange}
                         value={addressInput1}
-                        placeholder="Adress 1"
+                        placeholder="Osoite 1"
                         required
                       />
                       <input
@@ -463,14 +459,14 @@ class Orderform extends Component {
                         name="addressInput2"
                         onChange={this.handleChange}
                         value={addressInput2}
-                        placeholder="Adress 2 (frivilligt)"
+                        placeholder="Osoite 2 (vapaaehtoinen)"
                       />
                       <input
                         type="text"
                         name="zipCodeInput"
                         onChange={this.handleChange}
                         value={zipCodeInput}
-                        placeholder="Postnummer"
+                        placeholder="Postinumero"
                         required
                       />
                       <input
@@ -478,12 +474,15 @@ class Orderform extends Component {
                         name="regionInput"
                         onChange={this.handleChange}
                         value={regionInput}
-                        placeholder="Postort"
+                        placeholder="Postitoimipaikka"
                         required
                       />
                       <div className="checkboxes-mini">
                         <div className="checkbox-section-wrapper">
-                          <label>Kan få leverans via postombud</label>
+                          <label>
+                            Minulle saa lähettää näytteet Postin
+                            toimipisteeseen.
+                          </label>
                           <Checkbox
                             changeParentState={this.handleChangeChk}
                             nameOfBox="agent"
@@ -498,7 +497,7 @@ class Orderform extends Component {
                         name="nameInput"
                         onChange={this.handleChange}
                         value={nameInput}
-                        placeholder="Namn"
+                        placeholder="Etu- ja sukunimi"
                         required
                       />
                       <input
@@ -506,7 +505,7 @@ class Orderform extends Component {
                         name="phoneNumberInput"
                         onChange={this.handleChange}
                         value={phoneNumberInput}
-                        placeholder="Telefonummer"
+                        placeholder="Puhelinnumero"
                         required
                       />
                       <input
@@ -514,7 +513,7 @@ class Orderform extends Component {
                         name="mailInput"
                         onChange={this.handleChange}
                         value={mailInput}
-                        placeholder="Email"
+                        placeholder="Sähköpostiosoite"
                         pattern="/[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/"
                       />
                     </div>
@@ -523,13 +522,16 @@ class Orderform extends Component {
                     <Fragment>
                       <div className="checkboxes">
                         <label>
-                          Vi är en stor klinik (fler än fem behandlingsrum)
+                          Olemme iso klinikka (enemmän kuin viisi
+                          vastaanottohuonetta)
                         </label>
                         <Checkbox
                           changeParentState={this.handleChangeChk}
                           nameOfBox="bigClinic"
                         />
-                        <label>Vi vill gärna ha Plackers nyhetsbrev</label>
+                        <label>
+                          Tilaan mielelläni sähköisen Plackers-uutiskirjeen.
+                        </label>
                         <Checkbox
                           changeParentState={this.handleChangeChk}
                           nameOfBox="newsletter"
@@ -545,7 +547,9 @@ class Orderform extends Component {
                   ) : (
                     <Fragment>
                       <div className="checkboxes">
-                        <label>Vi vill gärna ha Plackers nyhetsbrev</label>
+                        <label>
+                          Tilaan mielelläni sähköisen Plackers-uutiskirjeen.
+                        </label>
                         <Checkbox
                           changeParentState={this.handleChangeChk}
                           nameOfBox="newsletter"

@@ -202,7 +202,7 @@ class Ambassador extends Component {
                 onChange={this.handleChange}
                 value={contactNameInput}
                 name="contactNameInput"
-                placeholder="Namn"
+                placeholder="Etu- ja sukunimi"
                 required
               />
               <input
@@ -210,7 +210,7 @@ class Ambassador extends Component {
                 onChange={this.handleChange}
                 value={contactNumberInput}
                 name="contactNumberInput"
-                placeholder="Telefonnummer"
+                placeholder="Puhelinnumero"
                 required
               />
               <input
@@ -218,7 +218,7 @@ class Ambassador extends Component {
                 onChange={this.handleChange}
                 value={contactMailInput}
                 name="contactMailInput"
-                placeholder="Email"
+                placeholder="Sähköpostiosoite"
                 pattern="/[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/"
               />
             </div>

@@ -11,26 +11,26 @@ class App extends Component {
             <div className="main-list-row-wrapper">
               <Link to="/order">
                 <li>
-                  <div className="main-list-title">Beställ prover</div>
+                  <div className="main-list-title">Tilaa näytteitä</div>
 
                   <div className="main-list-content">
-                    Välj mellan våra olika provpaket
+                    Valitse sinulle sopiva näytepakkaus
                   </div>
                 </li>
               </Link>
               <Link to="/buy">
                 <li>
-                  <div className="main-list-title">Köp produkter</div>
+                  <div className="main-list-title">Osta tuotteita</div>
                   <div className="main-list-content">
-                    Köp här eller beställ till kliniken och få mässrabatt
+                    Tilaa vasaanotollesi Plackers-tuotteita messualennuksella
                   </div>
                 </li>
               </Link>
               <Link to="/newsletter">
                 <li>
-                  <div className="main-list-title">Anmälan till nyhetsbrev</div>
+                  <div className="main-list-title">Tilaa säkhköinen uutiskirje</div>
                   <div className="main-list-content">
-                    För dig som endast vill få vårt nyhetsbrev
+                    Sinulle, joka haluat uusimmat tiedot Plackersin tuotteista
                   </div>
                 </li>
               </Link>
