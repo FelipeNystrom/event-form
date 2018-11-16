@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Loading from '../loading';
 import Modal from './modal';
 import './platinum.scss';
 
@@ -15,6 +16,7 @@ class Platinum extends Component {
     sellingToday: '',
     otherInput: '',
     errorMsg: '',
+    loading: false,
     successMsg: '',
     redirect: false,
     refresh: false,
@@ -90,6 +92,7 @@ class Platinum extends Component {
         .then(res => {
           if (res.status === 200) {
             this.setState({
+              loading: false,
               companyNameInput: '',
               contactMail: '',
               contactPhonenumberInput: '',
@@ -107,6 +110,7 @@ class Platinum extends Component {
         })
         .catch(err => {
           this.setState({
+            loading: false,
             companyNameInput: '',
             contactMail: '',
             contactPhonenumberInput: '',
@@ -119,6 +123,7 @@ class Platinum extends Component {
             refresh: true
           });
         });
+      this.setState({ loading: true });
     } else {
       this.setState({
         errorMsg: 'Du måste godkänna villkoren för att forsätta'
@@ -209,7 +214,8 @@ class Platinum extends Component {
       errorMsg,
       successMsg,
       show,
-      missingFields
+      missingFields,
+      loading
     } = this.state;
     return (
       <Fragment>
@@ -217,6 +223,7 @@ class Platinum extends Component {
         {errorMsg && <div className="error">{errorMsg}</div>}
         <div className="section-title">Platinum-näytepakkaus</div>
         <form className="platinum-form" onSubmit={this.handleSubmit}>
+          {loading && <Loading />}
           <Modal
             hideModal={this.hideModal}
             show={show}

@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import './newsletter.css';
 import Modal from './modal';
+import Loading from '../loading';
 
 class Newsletter extends Component {
   state = {
     newsletterInput: '',
+    loading: false,
     subscribersNameInput: '',
     errorMsg: '',
     successMsg: '',
@@ -59,6 +61,7 @@ class Newsletter extends Component {
               subscribersNameInput: '',
               errorMsg: '',
               successMsg: 'Tack för din anmälan!',
+              loading: false,
               redirect: true,
               refresh: false
             });
@@ -69,6 +72,7 @@ class Newsletter extends Component {
             newsletterInput: '',
             subscribersNameInput: '',
             errorMsg: 'Oj! Något har blivit fel. Prova att anmäla dig igen',
+            loading: false,
             successMsg: '',
             redirect: false,
             refresh: true
@@ -79,6 +83,8 @@ class Newsletter extends Component {
         errorMsg: 'Du måste godkänna villkoren för att forsätta'
       });
     }
+
+    this.setState({ loading: true });
   };
   allFields = () => {
     const { newsletterInput, subscribersNameInput } = this.state;
@@ -120,6 +126,7 @@ class Newsletter extends Component {
     const {
       newsletterInput,
       subscribersNameInput,
+      loading,
       errorMsg,
       successMsg,
       missingFields,
@@ -127,6 +134,7 @@ class Newsletter extends Component {
     } = this.state;
     return (
       <Fragment>
+        {loading && <Loading />}
         <Modal
           hideModal={this.hideModal}
           show={show}

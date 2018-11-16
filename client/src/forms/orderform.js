@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Loading from '../loading';
 import './orderform.scss';
 import Sample from './sample';
 import Checkbox from './Checkbox';
@@ -263,6 +264,7 @@ class Orderform extends Component {
               sellingToday: '...',
               sameAddress: false,
               missingFields: false,
+              loading: false,
               otherInput: '',
               errorMsg: '',
               successMsg: 'Tack för att du vill prova våra produkter!',
@@ -279,9 +281,11 @@ class Orderform extends Component {
           console.error(err);
           this.setState({
             refresh: true,
+            loading: false,
             errorMsg: 'Oj! Något har blivit fel. Vänligen prova igen.'
           });
         });
+      this.setState({ loading: true });
     } else {
       this.setState({
         errorMsg: 'Du måste godkänna villkoren för att forsätta'
@@ -353,6 +357,7 @@ class Orderform extends Component {
       reference,
       show,
       next,
+      loading,
       orderInfo
     } = this.state;
     const { basic } = this.props;
@@ -396,6 +401,7 @@ class Orderform extends Component {
             <div className="section-title">Premiumpaket</div>
           )}
           <Fragment>
+            {loading && <Loading />}
             <Modal
               hideModal={this.hideModal}
               show={show}
