@@ -78,13 +78,12 @@ class Newsletter extends Component {
             refresh: true
           });
         });
+      this.setState({ loading: true });
     } else {
       this.setState({
         errorMsg: 'Du måste godkänna villkoren för att forsätta'
       });
     }
-
-    this.setState({ loading: true });
   };
   allFields = () => {
     const { newsletterInput, subscribersNameInput } = this.state;
