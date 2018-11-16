@@ -267,7 +267,7 @@ class Orderform extends Component {
               loading: false,
               otherInput: '',
               errorMsg: '',
-              successMsg: 'Tack för att du vill prova våra produkter!',
+              successMsg: 'Kiitos mielenkiinnostasi tuotteitamme kohtaan!',
               redirect: true,
               disabled: false,
               refresh: false,
@@ -282,13 +282,14 @@ class Orderform extends Component {
           this.setState({
             refresh: true,
             loading: false,
-            errorMsg: 'Oj! Något har blivit fel. Vänligen prova igen.'
+            errorMsg:
+              'Oi! Jotain meni väärin. Pyydämme ystävällisesti kokeilemaan uudestaan.'
           });
         });
       this.setState({ loading: true });
     } else {
       this.setState({
-        errorMsg: 'Du måste godkänna villkoren för att forsätta'
+        errorMsg: 'Hyväksy käyttöehdot jatkaaksesi eteenpäin'
       });
     }
   };
@@ -398,7 +399,7 @@ class Orderform extends Component {
           {basic ? (
             <div className="section-title">Basic-näytepakkaus</div>
           ) : (
-            <div className="section-title">Premiumpaket</div>
+            <div className="section-title">Premium-pakkaus</div>
           )}
           <Fragment>
             {loading && <Loading />}
@@ -430,7 +431,7 @@ class Orderform extends Component {
                         <div className="premium-order-info">
                           <div className="contact-column-title">Tilaus</div>
                           <div className="premium-order-sub-title">
-                            Köp 100st för 300kr ex. moms
+                            Osta 100kpl 300kr, lle. vero
                           </div>
                           <input
                             type="text"
@@ -496,7 +497,7 @@ class Orderform extends Component {
                         </div>
                       </div>
                       <div className="contact-column-title-sub">
-                        Kontaktuppgifter
+                        yhteystiedot
                       </div>
                       <input
                         type="text"
@@ -564,24 +565,24 @@ class Orderform extends Component {
                       <input
                         type="button"
                         onClick={this.nextPage}
-                        value="Nästa"
+                        value="Seuraava"
                       />
                     </Fragment>
                   )}
                 </Fragment>
               ) : (
                 <Fragment>
-                  <div className="next-title">Fakturainformation</div>
+                  <div className="next-title">Laskutustiedot</div>
                   <div className="flex-row">
                     <div className="same-address">
-                      <label>Samma adress som leveransadress</label>
+                      <label>Sama kuin toimitusosoite</label>
                       <Checkbox
                         changeParentState={this.handleChangeChk}
                         nameOfBox="sameAddress"
                       />
                     </div>
                     <div className="selling-today">
-                      <label>Vi säljer Plackers idag</label>
+                      <label>Myymme Plackersia tänään.</label>
                       <select
                         name="sellingToday"
                         value={sellingToday}
@@ -589,12 +590,12 @@ class Orderform extends Component {
                       >
                         <option value="...">...</option>
 
-                        <option value="Ja">Ja</option>
-                        <option value="Nej">Nej</option>
+                        <option value="Ja">Kyllä</option>
+                        <option value="Nej">Ei</option>
                         <option value="Nej – men kan tänka oss det">
-                          Nej – men kan tänka oss det
+                          Ei- mutta voisin harkita sitä.
                         </option>
-                        <option value="Vet ej">Vet ej</option>
+                        <option value="Vet ej">En osaa sanoa</option>
                       </select>
                     </div>
                   </div>
@@ -604,7 +605,7 @@ class Orderform extends Component {
                       name="companyNameInput"
                       onChange={this.handleChange}
                       value={companyNameInput}
-                      placeholder="Företagets namn (frivilligt)"
+                      placeholder="Yrityksen nimi (vapaaehtoinen)"
                       disabled={disabled}
                     />
                     <input
@@ -612,7 +613,8 @@ class Orderform extends Component {
                       name="addressCompanyInput1"
                       onChange={this.handleChange}
                       value={addressCompanyInput1}
-                      placeholder="Fakturaadress 1 (frivilligt)"
+                      placeholder=" Laskutusosoite 1 (vapaaehtoinen)
+"
                       disabled={disabled}
                     />
                     <input
@@ -620,7 +622,8 @@ class Orderform extends Component {
                       name="addressCompanyInput2"
                       onChange={this.handleChange}
                       value={addressCompanyInput2}
-                      placeholder="Fakturaadress 2 (frivilligt)"
+                      placeholder="Laskutusosoite 2 (vapaaehtoinen)
+"
                       disabled={disabled}
                     />
                   </div>
@@ -630,7 +633,7 @@ class Orderform extends Component {
                       name="zipCodeCompanyInput"
                       onChange={this.handleChange}
                       value={zipCodeCompanyInput}
-                      placeholder="Postnummer (frivilligt)"
+                      placeholder="Postinumero (vapaaehtoinen)"
                       disabled={disabled}
                     />
                     <input
@@ -638,7 +641,8 @@ class Orderform extends Component {
                       name="regionCompanyInput"
                       onChange={this.handleChange}
                       value={regionCompanyInput}
-                      placeholder="Postort (frivilligt)"
+                      placeholder="Postitoimipaikka
+ (vapaaehtoinen)"
                       disabled={disabled}
                     />
                     <input
@@ -646,7 +650,8 @@ class Orderform extends Component {
                       name="reference"
                       onChange={this.handleChange}
                       value={reference}
-                      placeholder="Referens (frivilligt)"
+                      placeholder="Viite (vapaaehtoinen)
+"
                     />
                   </div>
 
@@ -654,14 +659,14 @@ class Orderform extends Component {
                     name="otherInput"
                     value={otherInput}
                     onChange={this.handleChange}
-                    placeholder="Övriga önskemål (frivilligt)"
+                    placeholder="Muut toiveet (vapaaehtoinen)"
                     cols="10"
                     rows="6"
                   />
                   <input
                     type="submit"
                     onClick={this.showModal}
-                    value="Beställ prover"
+                    value="Tilaa näytteitä"
                   />
                 </Fragment>
               )}

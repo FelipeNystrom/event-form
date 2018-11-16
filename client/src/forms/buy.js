@@ -10,7 +10,7 @@ class Buy extends Component {
     return (
       <Fragment>
         <div className="buy-container">
-          <div className="buy-title">Köp Plackers produkter</div>
+          <div className="buy-title">Osta Plackerin tuotteet</div>
           <div className="buy-message">
             <div>
               Tarjoamme edullisia messutarjouksia, kun tilaatte
@@ -18,9 +18,8 @@ class Buy extends Component {
               henkilökuntaamme messuosastollamme tilauksen tekemiseksi.
             </div>
             <div>
-              Vi har även tagit fram ett specialerbjudande med ännu högre rabatt
-              och utan leveranskostnad för dig som köper på plats på mässan.
-              Kontakta oss så hjälper vi dig.
+              Tarjoamme entistä edullisempia messutarjouksia ilman
+              lähetyskuluja, kun tilaatte Plackers-tuotteita messuosastoltamme.
             </div>
           </div>
         </div>

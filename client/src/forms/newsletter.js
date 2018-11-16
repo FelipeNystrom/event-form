@@ -60,7 +60,7 @@ class Newsletter extends Component {
               newsletterInput: '',
               subscribersNameInput: '',
               errorMsg: '',
-              successMsg: 'Tack för din anmälan!',
+              successMsg: 'Kiitos ilmoittautumisesta!',
               loading: false,
               redirect: true,
               refresh: false
@@ -71,7 +71,7 @@ class Newsletter extends Component {
           this.setState({
             newsletterInput: '',
             subscribersNameInput: '',
-            errorMsg: 'Oj! Något har blivit fel. Prova att anmäla dig igen',
+            errorMsg: 'Oi! Tapahtui virhe. Kokeile ilmoittautumista uudestaan.',
             loading: false,
             successMsg: '',
             redirect: false,
@@ -81,7 +81,7 @@ class Newsletter extends Component {
       this.setState({ loading: true });
     } else {
       this.setState({
-        errorMsg: 'Du måste godkänna villkoren för att forsätta'
+        errorMsg: 'Hyväksy käyttöehdot jatkaaksesi eteenpäin'
       });
     }
   };

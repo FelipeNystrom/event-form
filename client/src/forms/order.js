@@ -6,7 +6,7 @@ class Order extends Component {
     const { match } = this.props;
     return (
       <Fragment>
-        <div className="section-title">Välj något av våra provpaket</div>
+        <div className="section-title">Valitse yksi näytepaketeista</div>
         <div className="order-packages">
           <Link className="package" to={`${match.url}/basic`}>
             <div className="package-content">

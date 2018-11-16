@@ -103,7 +103,7 @@ class Platinum extends Component {
               otherInput: '',
               errorMsg: '',
               successMsg:
-                'Tack för din anmälan! Vi kommer höra av oss så fort som möjligt!',
+                'Kiitos tilauksestasi! Otamme yhteyttä mahdollisimman pian.',
               redirect: true
             });
           }
@@ -118,7 +118,7 @@ class Platinum extends Component {
             addressCompanyInput2: '',
             zipCodeCompanyInput: '',
             regionCompanyInput: '',
-            errorMsg: 'Oj! Något har blivit fel. Prova att anmäla dig igen',
+            errorMsg: 'Oi! Tapahtui virhe. Kokeile ilmoittautumista uudestaan.',
             successMsg: '',
             refresh: true
           });
@@ -126,7 +126,7 @@ class Platinum extends Component {
       this.setState({ loading: true });
     } else {
       this.setState({
-        errorMsg: 'Du måste godkänna villkoren för att forsätta'
+        errorMsg: 'Hyväksy käyttöehdot jatkaaksesi eteenpäin'
       });
     }
   };
@@ -249,7 +249,7 @@ class Platinum extends Component {
                 name="contactMail"
                 onChange={this.handleChange}
                 value={contactMail}
-                placeholder="Email"
+                placeholder="Sähköpostiosoite"
                 pattern="/[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})/"
               />
               <input
@@ -260,25 +260,25 @@ class Platinum extends Component {
                 placeholder="Puhelinnumero"
                 required
               />
-              <input type="button" onClick={this.handleNext} value="Nästa" />
+              <input type="button" onClick={this.handleNext} value="Seuraava" />
             </Fragment>
           ) : (
             <Fragment>
-              <div className="next-title">Fakturainformation</div>
+              <div className="next-title">Laskutustiedot</div>
               <div className="basic-form-row">
                 <input
                   type="text"
                   name="recipientInput"
                   onChange={this.handleChange}
                   value={recipientInput}
-                  placeholder="Fakturamottagare (frivilligt)"
+                  placeholder="Tilaaja (vapaaehtoinen)"
                 />
                 <input
                   type="text"
                   name="addressCompanyInput1"
                   onChange={this.handleChange}
                   value={addressCompanyInput1}
-                  placeholder="Fakturaadress 1 (frivilligt)"
+                  placeholder="Laskutusosoite 1 (vapaaehtoinen)"
                   required
                 />
                 <input
@@ -286,7 +286,7 @@ class Platinum extends Component {
                   name="addressCompanyInput2"
                   onChange={this.handleChange}
                   value={addressCompanyInput2}
-                  placeholder="Fakturaadress 2 (frivilligt)"
+                  placeholder="Laskutusosoite 2 (vapaaehtoinen)"
                 />
               </div>
               <div className="basic-form-row">
@@ -295,18 +295,18 @@ class Platinum extends Component {
                   name="zipCodeCompanyInput"
                   onChange={this.handleChange}
                   value={zipCodeCompanyInput}
-                  placeholder="Postnummer (frivilligt)"
+                  placeholder="Postinumero (vapaaehtoinen)"
                 />
                 <input
                   type="text"
                   name="regionCompanyInput"
                   onChange={this.handleChange}
                   value={regionCompanyInput}
-                  placeholder="Postort (frivilligt)"
+                  placeholder="Postitoimipaikka"
                 />
               </div>
               <div className="platinum-selling-today">
-                <label>Vi säljer Plackers idag</label>
+                <label>Myymme Plackersia tänään</label>
                 <select
                   name="sellingToday"
                   value={sellingToday}
@@ -314,12 +314,12 @@ class Platinum extends Component {
                 >
                   <option value="...">...</option>
 
-                  <option value="Ja">Ja</option>
-                  <option value="Nej">Nej</option>
+                  <option value="Ja">Kyllä</option>
+                  <option value="Nej">Ei</option>
                   <option value="Nej – men kan tänka oss det">
-                    Nej – men kan tänka oss det
+                    Ei - mutta voisin harkita sitä
                   </option>
-                  <option value="Vet ej">Vet ej</option>
+                  <option value="Vet ej">En osaa sanoa</option>
                 </select>
               </div>
 
@@ -327,14 +327,14 @@ class Platinum extends Component {
                 name="otherInput"
                 value={otherInput}
                 onChange={this.handleChange}
-                placeholder="Övriga önskemål"
+                placeholder="Muut toiveet"
                 cols="10"
                 rows="6"
               />
               <input
                 type="submit"
                 onClick={this.showModal}
-                value="Beställ prover"
+                value="Tilaa näytteitä"
               />
             </Fragment>
           )}

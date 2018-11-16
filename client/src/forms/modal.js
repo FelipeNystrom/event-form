@@ -144,13 +144,13 @@ class Modal extends Component {
                   </div>
                 </ul>
               </div>
-              <div className="modal-title">Jag godkänner villkoren</div>
+              <div className="modal-title">Hyväksyn ehdot</div>
               <div className="modal-button-wrapper">
                 <button name="yes" onClick={this.handleClick}>
-                  Ja
+                  Kyllä
                 </button>
                 <button name="no" onClick={this.handleClick}>
-                  Nej
+                  Ei
                 </button>
               </div>
             </Fragment>
